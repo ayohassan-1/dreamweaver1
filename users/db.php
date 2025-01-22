@@ -30,3 +30,5 @@ function addUser($pdo, $username, $password, $email) {
     return $stmt->execute();
 }
 ?>
+
+
