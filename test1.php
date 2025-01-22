@@ -6,8 +6,7 @@
 </head>
 Christiano Tovar 09-09-2008
 Hasan Haidar 11/09/1998
-Khristien 10/21/20008
-  
+Khristien 10/21/2008
 <body>
 </body>
 </html>
