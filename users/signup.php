@@ -6,7 +6,7 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="/users/style.css">
 </head>
-<body
+<body>
     <div class="register-container">
         <h1>Sign Up</h1>
         <form action="../signuphandler.php" method="post">
@@ -28,5 +28,7 @@
     </div>
 </body>
 </html>
+
+
 
 
