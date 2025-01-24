@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="register-container">
-        <h1>Sign Uup</h1>
+        <h1>Sign Up</h1>
         <form action="../signuphandler.php" method="post">
             <!-- Username field -->
             <label for="username">Username:</label>
@@ -28,7 +28,6 @@
     </div>
 </body>
 </html>
-
 
 
 
