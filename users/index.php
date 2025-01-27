@@ -29,4 +29,4 @@ if (!isset($_SESSION['user_id'])) {
             <p><strong>Username:</strong> <?php echo htmlspecialchars($_SESSION['uname']); ?></p>
             <p><strong>Registration Date:</strong> <?php echo htmls
 
-	// Hasan Haidar 11/09/08
+	// Hasan Haidar 11/09
