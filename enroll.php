@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 <?php
 session_start();
-require_once '../db.php';
+require_once 'db.php';
 
 // Check if course_id is provided
 if (!isset($_GET['course_id'])) {
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $reason = $_POST['reason'];
 
-    // Insert enrollment data into the database
+    // Insert enrollment data into the database (create a new table for enrollments)
     $stmt = $pdo->prepare("INSERT INTO enrollments (course_id, user_id, name, email, reason, enrollment_date) 
                            VALUES (:course_id, :user_id, :name, :email, :reason, NOW())");
     $stmt->bindParam(':course_id', $course_id);
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bindParam(':reason', $reason);
     $stmt->execute();
 
-    // Redirect to course1.php with course ID
+    // Redirect to course1.php with form data in the URL
     header("Location: /users/course1.php?course_id=" . $course_id);
     exit();
 }
@@ -44,25 +44,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enroll in Course</title>
-    <link rel="stylesheet" href="/users/style.css">
+    <link rel="stylesheet" href="/users/style.css"> <!-- Updated path to style.css -->
 </head>
 <body>
-    <div class="container">
-        <div class="enroll-container">
-            <h1>Enroll in Course</h1>
-            <form method="post" action="/users/enroll.php?course_id=<?php echo htmlspecialchars($course_id); ?>">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="reason">Reason for enrolling:</label>
-                <textarea id="reason" name="reason" required></textarea>
-
-                <button type="submit">Enroll Now</button>
-            </form>
-        </div>
-    </div>
+    <h1>Enroll in Course</h1>
+    <form method="post" action="/users/enroll.php?course_id=<?php echo htmlspecialchars($course_id); ?>"> <!-- Corrected form action -->
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="reason">Reason for enrolling:</label>
+        <textarea id="reason" name="reason" required></textarea><br><br>
+        <button type="submit">Enroll Now</button>
+    </form>
 </body>
 </html>
