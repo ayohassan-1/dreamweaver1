@@ -95,8 +95,7 @@ button:hover {
     }
 }
 
-<<<<<<< Updated upstream
-=======
+
 /* Courses section */
 .courses {
     display: flex; /* Changed to flex for horizontal display */
@@ -123,5 +122,3 @@ button:hover {
 .course p {
     color: #777;
     font-size: 0.9em;
-}
->>>>>>> Stashed changes
