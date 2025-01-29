@@ -10,10 +10,16 @@ body {
     background-color: #f4f6f8;
     color: #333;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
+    padding: 20px;
+    margin: 10px; /* Added margin */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05); /* Added box-shadow */
+    border-radius: 8px; /* Rounded corners */
 }
+
+/* Other styles remain unchanged */
 
 /* Container styling for the login form */
 .login-container, .container {
