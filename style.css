@@ -1,110 +1,34 @@
-/* Global Reset */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body Styling */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f6f8;
     color: #333;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 20px;
-}
 
-/* General Container */
-.container {
-    max-width: 600px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Form Container */
-.form-container {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    text-align: center;
-}
-
-/* Heading */
 h1 {
     font-size: 2rem;
     color: #333;
     margin-bottom: 1rem;
 }
 
-/* Labels */
+
 label {
     display: block;
     font-size: 1rem;
     color: #666;
-    margin-bottom: 0.25rem;
-}
 
-/* Input Fields */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-textarea {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-    font-size: 1rem;
-}
-
-/* Textarea */
-textarea {
-    resize: vertical;
-    height: 120px;
-}
-
-/* Buttons */
-button, .login-button, .logout-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-button:hover, .login-button:hover, .logout-button:hover {
-    background-color: #0056b3;
-}
-
-.logout-button {
-    background-color: #ff4d4d;
-    margin-top: 10px;
-    padding: 8px 12px;
-    font-size: 0.9rem;
-}
-
-.logout-button:hover {
-    background-color: #e43a3a;
-}
-
-/* Error Messages */
 .error {
     color: red;
     margin-top: 1rem;
 }
 
-/* User Info */
 .user-info {
     position: absolute;
     top: 20px;
@@ -122,7 +46,7 @@ button:hover, .login-button:hover, .logout-button:hover {
     color: #555;
 }
 
-/* Header */
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -145,41 +69,6 @@ button:hover, .login-button:hover, .logout-button:hover {
     border-radius: 5px;
 }
 
-.header .nav-buttons a:hover {
-    background-color: #555;
-}
-
-/* Courses Section */
-.courses {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.course {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    flex: 1 1 250px;
-    min-width: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    text-align: center;
-}
-
-.course h2 {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.course p {
-    color: #777;
-    font-size: 0.9rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .form-container {
         padding: 1rem;
     }
 

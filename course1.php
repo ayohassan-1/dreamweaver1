@@ -23,7 +23,7 @@ try {
 
     if (!$course) {
         throw new Exception("Error: No course found with ID {$course_id}.");
-    }
+
 
 } catch (Exception $e) {
     if ($debug) {
@@ -147,3 +147,4 @@ try {
     </div>
 </body>
 </html>
+
