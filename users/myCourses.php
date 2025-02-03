@@ -15,13 +15,17 @@ if (!isset($_SESSION['user_id'])) {
 // Include the database connection file
 require_once 'db.php';
 
-// Fetch courses from the database
+// Fetch the courses the user is enrolled in
 try {
-    $stmt = $pdo->query("SELECT * FROM courses");
-    $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $user_id = $_SESSION['user_id'];
+    $stmt = $pdo->prepare("SELECT c.title, c.description, c.youtube_link, c.image_url FROM courses c
+                            INNER JOIN enrollments e ON c.id = e.course_id
+                            WHERE e.user_id = ?");
+    $stmt->execute([$user_id]);
+    $enrolledCourses = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-    error_log("Failed to fetch courses: " . $e->getMessage());
-    $courses = [];
+    error_log("Failed to fetch enrolled courses: " . $e->getMessage());
+    $enrolledCourses = [];
 }
 ?>
 
@@ -30,38 +34,23 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
+    <title>My Courses</title>
     <link rel="stylesheet" href="/users/style.css"> <!-- Linking to style.css -->
 </head>
 <body>
     <div class="container">
-        <!-- View Enrolled Courses Button -->
-        <div class="top-menu">
-            <a href="/myCourses.php" class="view-enrolled-button" style="position: absolute; >View Enrolled Courses</a>
+        <!-- Back to Landing Page Button -->
+        <div class="back-button">
+            <a href="/landing.php" class="back-link">Back to Landing Page</a>
         </div>
 
-        <!-- User Information Section -->
-        <div class="user-info">
-            <p><strong>User ID:</strong> <?php echo htmlspecialchars($_SESSION['user_id']); ?></p>
-            <p><strong>Username:</strong> <?php echo htmlspecialchars($_SESSION['uname']); ?></p>
-            <p><strong>Email:</strong> <?php echo htmlspecialchars($_SESSION['email']); ?></p>
-            <p><strong>Joined:</strong> <?php echo htmlspecialchars($_SESSION['regDate']); ?></p>
-            <a href="/profile.php">Go To Profile</a>
-        </div>
+        <!-- Header -->
+        <h1>My Enrolled Courses</h1>
 
-        <!-- Add Course Button -->
-        <div class="add-course">
-            <a href="/createCourse.php" class="add-course-button">Add a Course</a>
-        </div>
-
-        <!-- Welcome Section -->
-        <h1>Welcome, <?php echo htmlspecialchars($_SESSION['uname']); ?>!</h1>
-        <p>Explore our courses below:</p>
-
-        <!-- Courses Section -->
+        <!-- Enrolled Courses Section -->
         <div class="courses">
-            <?php if (count($courses) > 0): ?>
-                <?php foreach ($courses as $course): ?>
+            <?php if (count($enrolledCourses) > 0): ?>
+                <?php foreach ($enrolledCourses as $course): ?>
                     <div class="course">
                         <h2><?php echo htmlspecialchars($course['title']); ?></h2>
                         <p><?php echo htmlspecialchars($course['description']); ?></p>
@@ -75,16 +64,10 @@ try {
                         <?php if (!empty($course['image_url'])): ?>
                             <img src="<?php echo htmlspecialchars($course['image_url']); ?>" alt="Course Image" style="max-width: 100%; height: auto;">
                         <?php endif; ?>
-
-                        <!-- Enroll Now Form -->
-                        <form action="/enroll.php" method="get">
-                            <input type="hidden" name="course_id" value="<?php echo htmlspecialchars($course['id']); ?>">
-                            <button type="submit" class="enroll-button">Enroll Now</button>
-                        </form>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
-                <p>No courses available. Create your first course!</p>
+                <p>You are not enrolled in any courses yet.</p>
             <?php endif; ?>
         </div>
 
