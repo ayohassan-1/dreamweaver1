@@ -37,7 +37,7 @@ try {
     <div class="container">
         <!-- View Enrolled Courses Button -->
         <div class="top-menu">
-            <a href="/myCourses.php" class="view-enrolled-button" style="position: absolute; >View Enrolled Courses</a>
+            <a href="/myCourses.php" class="view-enrolled-button" style="position: absolute; >View Enrolled Courses"</a>
         </div>
 
         <!-- User Information Section -->

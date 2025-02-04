@@ -1,7 +1,9 @@
-.user-info {
-    background-color: cadetblue;
-    margin: auto;
-    height: auto;
-    width: auto;
-    border: thick solid black; /* Add a valid border style */
+
+.login-button {
+	color: cornflowerblue;
+	margin: auto;
+}
+.signup-button {
+	color: currentColor;
+	margin: auto;
 }
