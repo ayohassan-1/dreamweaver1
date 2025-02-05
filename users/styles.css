@@ -29,7 +29,7 @@ body {
 
 /* Logout button on the left */
 .logout-button {
-    background-color: yellow;
+    background-color: red;
     padding: 10px 15px;
     text-decoration: none;
     color: black;
@@ -111,7 +111,7 @@ body {
 }
 
 .enroll-button {
-    background-color: yellow;
+    background-color: greenyellow;
     border: none;
     padding: 10px;
     width: 100%;
