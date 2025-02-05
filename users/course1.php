@@ -47,8 +47,64 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($course['title']); ?></title>
-    <link rel="stylesheet" href="/users/style.css">
-    
+    <link rel="stylesheet" href="/users/styles.css">
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            z-index: 1000;
+        }
+        .header .nav-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        .header .nav-buttons a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #444;
+            border-radius: 5px;
+        }
+        .header .nav-buttons a:hover {
+            background-color: #555;
+        }
+        .header .nav-buttons .center-button {
+            margin: 0 auto;
+        }
+
+        body {
+            margin-top: 60px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .classrooms {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .classroom {
+            width: 300px;
+            text-align: center;
+        }
+
+        .classroom img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <!-- Header with buttons -->

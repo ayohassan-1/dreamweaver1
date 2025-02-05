@@ -1,0 +1,48 @@
+body {
+    background-color: #121212; /* Dark background */
+    color: white; /* White text for readability */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #1e1e1e; /* Slightly lighter dark box */
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px; /* Smaller width */
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 90%;
+    padding: 8px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    color: white;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #f0ad4e; /* Golden button */
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #d89c3c;
+}
