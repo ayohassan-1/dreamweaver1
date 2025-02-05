@@ -41,7 +41,7 @@ try {
     <div class="container">
         <!-- Back to Landing Page Button -->
         <div class="back-button">
-            <a href="/landing.php" class="back-link">Back to Landing Page</a>
+            <a href="/users/landing.php" class="back-link">Back to Landing Page</a>
         </div>
 
         <!-- Header -->
@@ -81,5 +81,3 @@ try {
 </body>
 </html>
 
-
-krhadada
