@@ -2,9 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-?>
 
-<?php
 session_start();
 require_once '../db.php';
 
@@ -44,22 +42,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enroll in Course</title>
-    <link rel="stylesheet" href="/users/style.css">
+    <link rel="stylesheet" href="/enrollStyle/style.css">
 </head>
 <body>
     <div class="container">
         <div class="enroll-container">
             <h1>Enroll in Course</h1>
             <form method="post" action="/users/enroll.php?course_id=<?php echo htmlspecialchars($course_id); ?>">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="reason">Reason for enrolling:</label>
-                <textarea id="reason" name="reason" required></textarea>
-
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reason">Reason for enrolling:</label>
+                    <textarea id="reason" name="reason" required></textarea>
+                </div>
                 <button type="submit">Enroll Now</button>
             </form>
         </div>
