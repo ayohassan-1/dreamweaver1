@@ -13,7 +13,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Include the database connection file
-require_once 'db.php';
+require_once 'users/db.php';
 
 // Fetch the courses the user is enrolled in
 try {
@@ -35,13 +35,13 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Courses</title>
-    <link rel="stylesheet" href="/users/styles.css"> <!-- Linking to style.css -->
+    <link rel="stylesheet" href="/users/style.css"> <!-- Linking to style.css -->
 </head>
 <body>
     <div class="container">
         <!-- Back to Landing Page Button -->
         <div class="back-button">
-            <a href="/users/landing.php" class="back-link">Back to Landing Page</a>
+            <a href="/landing.php" class="back-link">Back to Landing Page</a>
         </div>
 
         <!-- Header -->

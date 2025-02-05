@@ -18,16 +18,17 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 <body>
     <div class="container">
-        <h1>Welcome, <?php echo htmlspecialchars($_SESSION['name']); ?>!</h1>
+        <h1>Welcome, <?php echo htmlspecialchars($_SESSION['name'] ?? 'Guest'); ?>!</h1>
         <p>You are logged in.</p>
 
         <!-- User Information Section -->
         <div class="user-info">
             <h2>Your Information</h2>
-            <p><strong>User ID:</strong> <?php echo htmlspecialchars($_SESSION['user_id']); ?></p>
-            <p><strong>Email:</strong> <?php echo htmlspecialchars($_SESSION['email']); ?></p>
-            <p><strong>Username:</strong> <?php echo htmlspecialchars($_SESSION['uname']); ?></p>
-            <p><strong>Registration Date:</strong> <?php echo htmls
-
-	
-	//khris
+            <p><strong>User ID:</strong> <?php echo htmlspecialchars($_SESSION['user_id'] ?? 'N/A'); ?></p>
+            <p><strong>Email:</strong> <?php echo htmlspecialchars($_SESSION['email'] ?? 'N/A'); ?></p>
+            <p><strong>Username:</strong> <?php echo htmlspecialchars($_SESSION['uname'] ?? 'N/A'); ?></p>
+            <p><strong>Registration Date:</strong> <?php echo htmlspecialchars($_SESSION['registration_date'] ?? 'N/A'); ?></p>
+        </div>
+    </div>
+</body>
+</html>

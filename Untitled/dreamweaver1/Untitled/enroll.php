@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enroll in Course</title>
-    <link rel="stylesheet" href="/users/styles.css"> <!-- Updated path to style.css -->
+    <link rel="stylesheet" href="/users/style.css"> <!-- Updated path to style.css -->
 </head>
 <body>
     <h1>Enroll in Course</h1>
