@@ -47,7 +47,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($course['title']); ?></title>
-    <link rel="stylesheet" href="/users/styles.css">
+    <link rel="stylesheet" href="/users/style.css">
     <style>
         .header {
             display: flex;
