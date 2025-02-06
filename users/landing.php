@@ -3,7 +3,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Start the session if it's not already started
 session_start();
 
 // Check if the user is logged in
@@ -12,7 +11,6 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Include the database connection file
 require_once 'db.php';
 
 // Fetch courses from the database
@@ -39,7 +37,7 @@ try {
             <button type="submit" class="logout-button">Log Out</button>
         </form>
         <div class="logo">Self Elevate</div>
-        <a href="myCourses.php" class="enrolled-courses-button">View Enrolled Courses</a> 
+        <a href="myCourses.php" class="enrolled-courses-button">View Enrolled Courses</a>
     </div>
 
     <div class="search-container">
@@ -48,6 +46,7 @@ try {
         <a href="/profile.php">
             <img src="/path/to/profile-pic.jpg" alt="Profile" class="profile-pic">
         </a>
+        <a href="/createCourse.php" class="add-course-button">Add a Course</a>
     </div>
 
     <div class="container">
