@@ -30,6 +30,26 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
     <link rel="stylesheet" href="/users/styles.css?v=<?php echo time(); ?>">
+    <script>
+        function toggleDropdown() {
+            document.getElementById("profileDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.profile-pic')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+    
+      
+ 
 </head>
 <body>
     <div class="header">
@@ -43,9 +63,15 @@ try {
     <div class="search-container">
         <input type="text" placeholder="Search Courses...">
         <button class="search-button">Search</button>
-        <a href="/profile.php">
-            <img src="/path/to/profile-pic.jpg" alt="Profile" class="profile-pic">
-        </a>
+        
+        <div class="dropdown">
+            <img src="/path/to/profile-pic.jpg" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+            <div id="profileDropdown" class="dropdown-content">
+                <a href="/profile.php">Profile</a>
+                <a href="/users/profileEdit.php">Edit Profile</a>
+            </div>
+        </div>
+        
         <a href="/createCourse.php" class="add-course-button">Add a Course</a>
     </div>
 
@@ -81,3 +107,4 @@ try {
     </div>
 </body>
 </html>
+
