@@ -1,50 +1,1 @@
-
-
-<?xml version="1.0" encoding="utf-8" ?>
-<dwsync>
-<file name="style.css" server="157.173.208.76" local="3821543154" remote="3821571840" Dst="-1" />
-</dwsync>
-
-
-<?xml version="1.0" encoding="utf-8" ?>
-<dwsync>
-<file name="course1.php" server="157.173.208.76" local="3820507673" remote="3820966920" Dst="-1" />
-<file name="signup.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="enroll.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="loginhandler.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="login.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="logout.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="index.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="profileEdit.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="users.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="db.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="landing.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="style.css" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="classroom.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="style.css" server="157.173.208.76//public_html/" local="3821543024" remote="3821571840" Dst="-1" />
-<file name="signup.php" server="157.173.208.76//public_html/" local="3820852722" remote="3820535220" Dst="-1" />
-<file name="db.php" server="157.173.208.76//public_html/" local="3820852870" remote="3820488600" Dst="-1" />
-<file name="myCourses.php" server="157.173.208.76//public_html/" local="3821112844" remote="3820488960" Dst="-1" />
-</dwsync>
-
-<?xml version="1.0" encoding="utf-8" ?>
-<dwsync>
-<file name="course1.php" server="157.173.208.76" local="3820507673" remote="3820966920" Dst="-1" />
-<file name="signup.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="enroll.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="loginhandler.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="login.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="logout.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="index.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="profileEdit.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="users.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="db.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="landing.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="style.css" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="classroom.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" />
-<file name="style.css" server="157.173.208.76//public_html/" local="3821543868" remote="3821572620" Dst="-1" />
-<file name="signup.php" server="157.173.208.76//public_html/" local="3820852722" remote="3820535220" Dst="-1" />
-<file name="db.php" server="157.173.208.76//public_html/" local="3820852870" remote="3820488600" Dst="-1" />
-<file name="myCourses.php" server="157.173.208.76//public_html/" local="3821112844" remote="3820488960" Dst="-1" />
-</dwsync>
-
+<?xml version="1.0" encoding="utf-8" ?><dwsync><file name="course1.php" server="157.173.208.76" local="3820507673" remote="3820966920" Dst="-1" /><file name="signup.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" /><file name="enroll.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" /><file name="loginhandler.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" /><file name="login.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" /><file name="logout.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" /><file name="index.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" /><file name="profileEdit.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" /><file name="users.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" /><file name="db.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" /><file name="landing.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" /><file name="style.css" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" /><file name="classroom.php" server="157.173.208.76" local="3820938272" remote="3820967100" Dst="-1" /><file name="style.css" server="157.173.208.76//public_html/" local="3821596800" remote="3821596800" Dst="-1" /><file name="signup.php" server="157.173.208.76//public_html/" local="3820852722" remote="3820535220" Dst="-1" /><file name="db.php" server="157.173.208.76//public_html/" local="3820852870" remote="3820488600" Dst="-1" /><file name="myCourses.php" server="157.173.208.76//public_html/" local="3821613000" remote="3821613000" Dst="-1" /><file name="classroom.php" server="157.173.208.76//public_html/" local="3817335960" remote="3817335960" Dst="-1" /><file name="course1.php" server="157.173.208.76//public_html/" local="3821592840" remote="3821592840" Dst="-1" /><file name="enroll.php" server="157.173.208.76//public_html/" local="3821613780" remote="3821613780" Dst="-1" /><file name="index.php" server="157.173.208.76//public_html/" local="3820967520" remote="3820967520" Dst="-1" /><file name="landing.php" server="157.173.208.76//public_html/" local="3821680320" remote="3821680320" Dst="-1" /><file name="loginhandler.php" server="157.173.208.76//public_html/" local="3817077840" remote="3817077840" Dst="-1" /><file name="login.php" server="157.173.208.76//public_html/" local="3821599500" remote="3821599500" Dst="-1" /><file name="logout.php" server="157.173.208.76//public_html/" local="3816907080" remote="3816907080" Dst="-1" /><file name="profileEdit.php" server="157.173.208.76//public_html/" local="3817014240" remote="3817014240" Dst="-1" /><file name="styles.css" server="157.173.208.76//public_html/" local="3821680140" remote="3821680140" Dst="-1" /><file name="users.php" server="157.173.208.76//public_html/" local="3817015140" remote="3817015140" Dst="-1" /></dwsync>

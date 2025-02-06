@@ -3,7 +3,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Start the session if it's not already started
 session_start();
 
 // Check if the user is logged in
@@ -12,7 +11,6 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Include the database connection file
 require_once 'db.php';
 
 // Fetch courses from the database
@@ -32,6 +30,26 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
     <link rel="stylesheet" href="/users/styles.css?v=<?php echo time(); ?>">
+    <script>
+        function toggleDropdown() {
+            document.getElementById("profileDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.profile-pic')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+    
+      
+ 
 </head>
 <body>
     <div class="header">
@@ -39,15 +57,22 @@ try {
             <button type="submit" class="logout-button">Log Out</button>
         </form>
         <div class="logo">Self Elevate</div>
-        <a href="myCourses.php" class="enrolled-courses-button">View Enrolled Courses</a> 
+        <a href="myCourses.php" class="enrolled-courses-button">View Enrolled Courses</a>
     </div>
 
     <div class="search-container">
         <input type="text" placeholder="Search Courses...">
         <button class="search-button">Search</button>
-        <a href="/profile.php">
-            <img src="/path/to/profile-pic.jpg" alt="Profile" class="profile-pic">
-        </a>
+        
+        <div class="dropdown">
+            <img src="/path/to/profile-pic.jpg" alt="Profile" class="profile-pic" onclick="toggleDropdown()">
+            <div id="profileDropdown" class="dropdown-content">
+                <a href="/profile.php">Profile</a>
+                <a href="/users/profileEdit.php">Edit Profile</a>
+            </div>
+        </div>
+        
+        <a href="/createCourse.php" class="add-course-button">Add a Course</a>
     </div>
 
     <div class="container">
@@ -82,3 +107,4 @@ try {
     </div>
 </body>
 </html>
+
