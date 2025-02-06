@@ -1,0 +1,11 @@
+.profile-edit-container {
+    text-align: center;
+    padding: 20px;
+}
+button {
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
