@@ -28,7 +28,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Self Elevate - Courses</title>
+
     <link rel="stylesheet" href="/users/styles.css?v=<?php echo time(); ?>">
     <script>
         function toggleDropdown() {
@@ -37,19 +37,13 @@ try {
 
         window.onclick = function(event) {
             if (!event.target.matches('.profile-pic')) {
-                document.getElementById("profileDropdown").classList.remove("show");
-            }
-        }
-    </script>
-</head>
-<body>
-    <header class="header">
+
         <form action="/logout.php" method="post">
             <button type="submit" class="logout-button">Log Out</button>
         </form>
         <div class="logo">Self Elevate</div>
         <a href="myCourses.php" class="enrolled-courses-button">View Enrolled Courses</a>
-    </header>
+
 
     <div class="search-container">
         <input type="text" placeholder="Search Courses...">
@@ -66,12 +60,11 @@ try {
         <a href="/createCourse.php" class="add-course-button">Add a Course</a>
     </div>
 
-    <main class="container">
         <h1>Welcome, <?php echo htmlspecialchars($_SESSION['uname']); ?>!</h1>
         <p>Explore our courses below:</p>
 
         <div class="courses-container">
-            <?php if (!empty($courses)): ?>
+
                 <?php foreach ($courses as $course): ?>
                     <div class="course">
                         <h2><?php echo htmlspecialchars($course['title']); ?></h2>
@@ -95,6 +88,7 @@ try {
                 <p>No courses available. Create your first course!</p>
             <?php endif; ?>
         </div>
-    </main>
+
 </body>
 </html>
+
