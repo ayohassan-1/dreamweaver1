@@ -47,7 +47,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($course['title']); ?></title>
-    <link rel="stylesheet" href="/users/style.css">
+    <link rel="stylesheet" href="/course1.php/style.css">
     
 </head>
 <body>
