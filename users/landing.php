@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 session_start();
 
-// Check if the user is logged in
+// Redirect if user is not logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: users/login.php");
     exit();
@@ -15,10 +15,10 @@ require_once 'db.php';
 
 // Fetch courses from the database
 try {
-    $stmt = $pdo->query("SELECT * FROM courses");
+    $stmt = $pdo->query("SELECT id, title, description, youtube_link, image_url FROM courses");
     $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-    error_log("Failed to fetch courses: " . $e->getMessage());
+    error_log("Database error: " . $e->getMessage());
     $courses = [];
 }
 ?>
@@ -28,7 +28,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
+
     <link rel="stylesheet" href="/users/styles.css?v=<?php echo time(); ?>">
     <script>
         function toggleDropdown() {
@@ -37,28 +37,13 @@ try {
 
         window.onclick = function(event) {
             if (!event.target.matches('.profile-pic')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
-    </script>
-    
-      
- 
-</head>
-<body>
-    <div class="header">
+
         <form action="/logout.php" method="post">
             <button type="submit" class="logout-button">Log Out</button>
         </form>
         <div class="logo">Self Elevate</div>
         <a href="myCourses.php" class="enrolled-courses-button">View Enrolled Courses</a>
-    </div>
+
 
     <div class="search-container">
         <input type="text" placeholder="Search Courses...">
@@ -75,12 +60,11 @@ try {
         <a href="/createCourse.php" class="add-course-button">Add a Course</a>
     </div>
 
-    <div class="container">
         <h1>Welcome, <?php echo htmlspecialchars($_SESSION['uname']); ?>!</h1>
         <p>Explore our courses below:</p>
 
         <div class="courses-container">
-            <?php if (count($courses) > 0): ?>
+
                 <?php foreach ($courses as $course): ?>
                     <div class="course">
                         <h2><?php echo htmlspecialchars($course['title']); ?></h2>
@@ -104,7 +88,7 @@ try {
                 <p>No courses available. Create your first course!</p>
             <?php endif; ?>
         </div>
-    </div>
+
 </body>
 </html>
 
