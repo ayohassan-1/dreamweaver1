@@ -27,3 +27,7 @@ if (!isset($_SESSION['user_id'])) {
             <p><strong>User ID:</strong> <?php echo htmlspecialchars($_SESSION['user_id']); ?></p>
             <p><strong>Email:</strong> <?php echo htmlspecialchars($_SESSION['email']); ?></p>
             <p><strong>Username:</strong> <?php echo htmlspecialchars($_SESSION['uname']); ?></p>
+            <p><strong>Registration Date:</strong> <?php echo htmls
+
+	
+	//khris

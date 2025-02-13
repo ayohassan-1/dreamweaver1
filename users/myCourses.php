@@ -35,13 +35,13 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Courses</title>
-    <link rel="stylesheet" href="/users/style.css"> <!-- Linking to style.css -->
+    <link rel="stylesheet" href="/users/styles.css"> <!-- Linking to style.css -->
 </head>
 <body>
     <div class="container">
         <!-- Back to Landing Page Button -->
         <div class="back-button">
-            <a href="/landing.php" class="back-link">Back to Landing Page</a>
+            <a href="/users/landing.php" class="back-link">Back to Landing Page</a>
         </div>
 
         <!-- Header -->
