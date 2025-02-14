@@ -178,6 +178,7 @@ body {
 
 .enroll-button {
     display: none;
+
 }
 
 /* Footer */
@@ -187,6 +188,12 @@ footer {
     background-color: #13172B;
     color: white;
     position: relative;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.875rem;
+
 }
 
 footer p {
