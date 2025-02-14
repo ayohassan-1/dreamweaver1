@@ -86,9 +86,7 @@ try {
                         <h2><?php echo htmlspecialchars($course['title']); ?></h2>
                         <p><?php echo htmlspecialchars($course['description']); ?></p>
 
-                        <?php if (!empty($course['youtube_link'])): ?>
-                            <a href="<?php echo htmlspecialchars($course['youtube_link']); ?>" target="_blank">Watch on YouTube</a>
-                        <?php endif; ?>
+  
 
                         <?php if (!empty($course['image_url'])): ?>
                             <img src="<?php echo htmlspecialchars($course['image_url']); ?>" alt="Course Image" class="course-image">
