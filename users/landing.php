@@ -74,21 +74,17 @@ try {
         <div class="courses-container">
             <?php if (!empty($courses)): ?>
                 <?php foreach ($courses as $course): ?>
-
                     <a href="enroll.php?course_id=<?php echo htmlspecialchars($course['id']); ?>" class="course-link">
                         <div class="course">
                             <?php if (!empty($course['image_url'])): ?>
                                 <img src="<?php echo htmlspecialchars($course['image_url']); ?>" alt="Course Image" class="course-image">
                             <?php endif; ?>
 
-
                             <div class="course-content">
                                 <h2><?php echo htmlspecialchars($course['title']); ?></h2>
                                 <p><?php echo htmlspecialchars($course['description']); ?></p>
 
-                                <?php if (!empty($course['youtube_link'])): ?>
-                                    <a href="<?php echo htmlspecialchars($course['youtube_link']); ?>" target="_blank">Watch on YouTube</a>
-                                <?php endif; ?>
+                               
                             </div>
                         </div>
                     </a>
