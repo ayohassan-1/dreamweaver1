@@ -22,18 +22,18 @@ function getAllUserEmails($pdo) {
 
 // Function to add a new user (includes image URL)
 function addUser($pdo, $username, $password, $email, $imageUrl) {
-    $stmt = $pdo->prepare("INSERT INTO users (uName, pWord, email, imageUrl, regDate) 
-                           VALUES (:uName, :pWord, :email, :imageUrl, NOW())");
+    $stmt = $pdo->prepare("INSERT INTO users (uName, pWord, email, image_url, regDate) 
+                           VALUES (:uName, :pWord, :email, :image_url, NOW())");
     $stmt->bindParam(':uName', $username);
     $stmt->bindParam(':pWord', password_hash($password, PASSWORD_DEFAULT)); // Hash password
     $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':imageUrl', $imageUrl); // Store image path
+    $stmt->bindParam(':image_url', $imageUrl); // Store image path
     return $stmt->execute();
 }
 
 // Function to get user data, including image URL
 function getUserData($pdo, $userId) {
-    $stmt = $pdo->prepare("SELECT uName, email, imageUrl FROM users WHERE id = :userId");
+    $stmt = $pdo->prepare("SELECT uName, email, image_url FROM users WHERE id = :userId");
     $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
