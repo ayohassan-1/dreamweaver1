@@ -1,43 +1,34 @@
 <?php
 session_start();
+include '../config.php'; // Adjust path as needed
 
-// Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
-    // Ensure no output is sent before the header function
-    header("Location: /login.php");
+    header("Location: ../login.php");
     exit();
 }
-?>
 
+$user_id = $_SESSION['user_id'];
+$query = "SELECT u.uName, u.email, p.profile_pic FROM users u LEFT JOIN profile p ON u.uid = p.user_id WHERE u.uid = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-    <link rel="stylesheet" href="users/style.css">
+    <title>Profile</title>
+    <link rel="stylesheet" href="profilestyle/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>User Profile</h1>
-        <p>Here is your information:</p>
-
-        <div class="user-info">
-            <p><strong>User ID:</strong> <?php echo htmlspecialchars($_SESSION['user_id']); ?></p>
-            <p><strong>Username:</strong> <?php echo htmlspecialchars($_SESSION['uname']); ?></p>
-            <p><strong>Email:</strong> <?php echo htmlspecialchars($_SESSION['email']); ?></p>
-            <p><strong>Registration Date:</strong> <?php echo htmlspecialchars($_SESSION['regDate']); ?></p>
-        </div>
-
-        <div class="navigation">
-            <a href="/users/landing.php" class="button">Back to Home</a>
-            <a href="users/profileEdit.php" class="button">Edit Profile</a> </div>
-
-        <div class="logout-section">
-            <form action="/users/logout.php" method="post">
-                <button type="submit" class="logout-button">Log Out</button>
-            </form>
-        </div>
+    <div class="profile-container">
+        <h1>Welcome, <?php echo htmlspecialchars($user['uName']); ?></h1>
+        <img src="<?php echo $user['profile_pic'] ? '../uploads/' . $user['profile_pic'] : '../images/default.png'; ?>" alt="Profile Picture" class="profile-pic">
+        <p>Email: <?php echo htmlspecialchars($user['email']); ?></p>
+        <a href="profileEdit.php">Edit Profile</a>
     </div>
 </body>
 </html>
