@@ -1,5 +1,5 @@
-/* Dark Theme Form Styles with Animated Night Sky */
-* {
+
+{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -8,7 +8,7 @@
 body {
     font-family: 'Roboto', Helvetica, Arial, sans-serif;
     font-size: 1rem;
-    background: radial-gradient(circle, #0d1b2a, #020c1b);
+    background: black;
     color: #e4e4e4;
     display: flex;
     justify-content: center;
@@ -21,9 +21,9 @@ body {
 
 /* Animated Stars */
 @keyframes twinkling {
-    0% { opacity: 0.3; }
-    50% { opacity: 1; }
-    100% { opacity: 0.3; }
+    0% { opacity: 0.1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 0.1; }
 }
 
 .stars {
@@ -33,7 +33,9 @@ body {
     top: 0;
     left: 0;
     background: url('https://www.transparenttextures.com/patterns/stardust.png');
-    animation: twinkling 3s infinite alternate;
+    animation: twinkling 5s infinite alternate;
+    opacity: 0.2;
+    filter: blur(1px);
 }
 
 /* FORM CONTAINER */
