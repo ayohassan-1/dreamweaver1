@@ -12,7 +12,6 @@ require_once 'db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = htmlspecialchars($_POST['title']);
     $description = htmlspecialchars($_POST['description']);
-    $youtubeLink = htmlspecialchars($_POST['youtubeLink']);
     $image = $_FILES['image'];
     $classroomImage = $_FILES['classroomImage']; // New image for classroom
     $classroomDescription = htmlspecialchars($_POST['classroomDescription']); // New description for classroom
