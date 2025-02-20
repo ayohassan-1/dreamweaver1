@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 require_once 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $title = htmlspecialchars($_POST['title']);
+    $title = htmlspecialchars($_POST['title']); 
     $description = htmlspecialchars($_POST['description']);
     $youtubeLink = htmlspecialchars($_POST['youtubeLink']);
     $image = $_FILES['image'];

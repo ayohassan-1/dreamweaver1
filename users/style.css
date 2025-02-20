@@ -1,2 +1,80 @@
 /* CSS Document */
 
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+
+	body {
+		font-family: Arial, sans-serif;
+		background-color: #f4f6f8;
+		color: #333;
+		display: flex;
+
+	h1 {
+		font-size: 2rem;
+		color: #333;
+		margin-bottom: 1rem;
+	}
+
+
+	label {
+		display: block;
+		font-size: 1rem;
+		color: #666;
+
+	.error {
+		color: red;
+		margin-top: 1rem;
+	}
+
+	.user-info {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		background-color: #fff;
+		padding: 15px;
+		border-radius: 8px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		text-align: right;
+	}
+
+	.user-info p {
+		margin: 5px 0;
+		font-size: 0.9em;
+		color: #555;
+	}
+
+
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 10px 20px;
+		background-color: #333;
+		color: white;
+	}
+
+	.header .nav-buttons {
+		display: flex;
+		gap: 20px;
+	}
+
+	.header .nav-buttons a {
+		color: white;
+		text-decoration: none;
+		padding: 10px 15px;
+		background-color: #444;
+		border-radius: 5px;
+	}
+
+			padding: 1rem;
+		}
+
+		h1 {
+			font-size: 1.5rem;
+		}
+	}
