@@ -13,6 +13,16 @@ if (!isset($_GET['course_id'])) {
 
 $course_id = $_GET['course_id'];
 
+// Fetch course details
+$stmt = $pdo->prepare("SELECT name, description FROM courses WHERE course_id = :course_id");
+$stmt->bindParam(':course_id', $course_id, PDO::PARAM_INT);
+$stmt->execute();
+$course = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$course) {
+    die("Course not found.");
+}
+
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get the user input
@@ -41,13 +51,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enroll in Course</title>
+    <title>Enroll in <?php echo htmlspecialchars($course['name']); ?></title>
     <link rel="stylesheet" href="/enrollStyle/style.css">
 </head>
 <body>
     <div class="container">
         <div class="enroll-container">
-            <h1>Enroll in Course</h1>
+            <h1>Enroll in <?php echo htmlspecialchars($course['name']); ?></h1>
+            <p><?php echo htmlspecialchars($course['description']); ?></p>
+
             <form method="post" action="/users/enroll.php?course_id=<?php echo htmlspecialchars($course_id); ?>">
                 <div class="form-group">
                     <label for="name">Full Name:</label>
