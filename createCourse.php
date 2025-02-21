@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 require_once 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $title = htmlspecialchars($_POST['title']);
+    $title = htmlspecialchars($_POST['title']); 
     $description = htmlspecialchars($_POST['description']);
     $youtubeLink = htmlspecialchars($_POST['youtubeLink']);
     $imageUrl = filter_var($_POST['imageUrl'], FILTER_VALIDATE_URL);
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Course</title>
-    <link rel="stylesheet" href="/createcoruse style/style.css">
+    <link rel="stylesheet" href="/createcorusestyle/style1.css">
 </head>
 <body>
     <div class="container">
