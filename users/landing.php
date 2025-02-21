@@ -67,12 +67,10 @@ try {
         <a href="/createCourse.php" class="add-course-button">Add a Course</a>
     </div>
 
-    <div class="welcome-container">
+    <main class="container">
         <h1>Welcome, <?php echo htmlspecialchars($_SESSION['uname']); ?>!</h1>
         <p>Explore our courses below:</p>
-    </div>
 
-    <main class="container">
         <div class="courses-container">
             <?php if (!empty($courses)): ?>
                 <?php foreach ($courses as $course): ?>
@@ -85,6 +83,8 @@ try {
                             <div class="course-content">
                                 <h2><?php echo htmlspecialchars($course['title']); ?></h2>
                                 <p><?php echo htmlspecialchars($course['description']); ?></p>
+
+                               
                             </div>
                         </div>
                     </a>
