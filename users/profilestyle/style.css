@@ -1,0 +1,102 @@
+/* Global Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    font-size: 0.875rem;
+    background-color: rgb(34, 34, 34);
+    color: rgb(228, 228, 228);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* PROFILE CONTAINER */
+.profile-container {
+    background-color: #1e1e1e;
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #ccc;
+}
+
+/* Heading Style */
+.profile-container h1 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Profile Info Styles */
+.profile-info {
+    background-color: #2d2d2d;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.profile-info p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.profile-info p strong {
+    font-weight: bold;
+}
+
+/* Profile Picture */
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid #444;
+}
+
+/* Edit Profile Button */
+.profile-container a {
+    display: inline-block;
+    background-color: #1e90ff;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.profile-container a:hover {
+    background-color: #4682b4;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #13172B;
+    color: white;
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+/* Spacing and Margin Adjustments */
+.profile-container > * {
+    margin-bottom: 20px;
+}
