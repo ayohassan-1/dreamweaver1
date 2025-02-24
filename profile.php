@@ -1,43 +1,53 @@
 <?php
 session_start();
 
-// Check if the user is logged in
+// Enable detailed error reporting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Include the database connection file
+require_once 'users/db.php';
+
+// Ensure user is logged in
 if (!isset($_SESSION['user_id'])) {
-    // Ensure no output is sent before the header function
-    header("Location: /login.php");
+    header("Location: login.php");
     exit();
 }
-?>
 
+$user_id = $_SESSION['user_id'];
+
+// Fetch user data from the database
+try {
+    $stmt = $pdo->prepare("SELECT uName, email, regDate FROM users WHERE uid = :user_id");
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$user) {
+        die("Error: User not found.");
+    }
+} catch (PDOException $e) {
+    die("Database query failed: " . $e->getMessage()); // Show actual error
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-    <link rel="stylesheet" href="users/style.css">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/users/profilestyle/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>User Profile</h1>
-        <p>Here is your information:</p>
+    <div class="profile-container">
+        <h1>Welcome, <?php echo htmlspecialchars($user['uName']); ?></h1>
+        
+        <p>Email: <?php echo htmlspecialchars($user['email']); ?></p>
+        <p>Registration Date: <?php echo htmlspecialchars($user['regDate']); ?></p>
 
-        <div class="user-info">
-            <p><strong>User ID:</strong> <?php echo htmlspecialchars($_SESSION['user_id']); ?></p>
-            <p><strong>Username:</strong> <?php echo htmlspecialchars($_SESSION['uname']); ?></p>
-            <p><strong>Email:</strong> <?php echo htmlspecialchars($_SESSION['email']); ?></p>
-            <p><strong>Registration Date:</strong> <?php echo htmlspecialchars($_SESSION['regDate']); ?></p>
-        </div>
-
-        <div class="navigation">
-            <a href="/users/landing.php" class="button">Back to Home</a>
-            <a href="users/profileEdit.php" class="button">Edit Profile</a> </div>
-
-        <div class="logout-section">
-            <form action="/users/logout.php" method="post">
-                <button type="submit" class="logout-button">Log Out</button>
-            </form>
-        </div>
+        <a href="/users/profileEdit.php">Edit Profile</a>
+		<a href="/users/landing.php" class="back-home-button">Back to Home</a>
     </div>
 </body>
 </html>

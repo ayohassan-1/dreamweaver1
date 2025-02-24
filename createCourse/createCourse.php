@@ -3,11 +3,11 @@ session_start();
 
 // Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header("Location: users/login.php");
+    header("Location: ../users/login.php");
     exit();
 }
 
-require_once 'db.php';
+require_once '../db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = htmlspecialchars($_POST['title']); 
@@ -19,10 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($imageUrl && $classroomImageUrl) {
         try {
+            // Assuming you have a function to add classrooms or courses
             $courseAdded = addCourse($pdo, $title, $description, $youtubeLink, $imageUrl, $classroomImageUrl, $classroomDescription);
 
             if ($courseAdded) {
-                header("Location: users/course1.php?course_id=" . $courseAdded);
+                // Redirecting to the correct classroom page
+                header("Location: ../classrooms/classroom.php?classroomid=" . $courseAdded);
                 exit();
             } else {
                 echo "Error adding course. Please try again.";
@@ -43,10 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Course</title>
-    <link rel="stylesheet" href="/createcorusestyle/style1.css">
+    <link rel="stylesheet" href="/createCourse/style1.css">
 </head>
 <body>
-    <!-- Stars Container -->
     <div class="stars-container">
         <?php for ($i = 0; $i < 30; $i++): ?>
             <div class="star" style="left: <?= rand(0, 100) ?>vw; animation-duration: <?= rand(8, 15) ?>s; animation-delay: <?= rand(0, 5) ?>s;"></div>

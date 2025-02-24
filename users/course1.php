@@ -113,7 +113,8 @@ try {
             <a href="/users/landing.php">Self-Elevate</a>
         </div>
         <div class="nav-buttons center-button">
-            <a href="classroom.php?course_id=<?php echo $course_id; ?>">Classroom</a>
+            <!-- Changed link to redirect to the new classroom page -->
+            <a href="/classrooms/classroom.php?course_id=<?php echo $course_id; ?>">Classroom</a>
         </div>
         <div class="nav-buttons">
             <a href="#about-section">About</a>
@@ -133,7 +134,7 @@ try {
             if (!empty($classrooms)) {
                 foreach ($classrooms as $classroom) {
                     echo "<div class='classroom'>";
-                    echo "<a href='classroom.php?classroom_id=" . $classroom['id'] . "'>";
+                    echo "<a href='/classrooms/classroom.php?course_id=" . $course_id . "'>";
                     echo "<img src='" . htmlspecialchars($classroom['image']) . "' alt='" . htmlspecialchars($classroom['title']) . "'>";
                     echo "</a>";
                     echo "<p>" . htmlspecialchars($classroom['description']) . "</p>";
