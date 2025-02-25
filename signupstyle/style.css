@@ -1,0 +1,57 @@
+/* Apply styles to the whole page */
+body {
+    background-color: #181818; /* Match login background */
+    color: white; /* White text for readability */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Style the container to match login page */
+.register-container {
+    background-color: #2a2a2a;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 320px;
+}
+
+/* Style form elements */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3a3a3a; /* Match login input fields */
+    color: white;
+    font-size: 16px;
+}
+
+/* Style the button */
+button {
+    background-color: #ffa726; /* Match login button color */
+    color: black;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #ff9800;
+}
