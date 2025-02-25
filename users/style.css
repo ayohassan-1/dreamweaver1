@@ -1,80 +1,66 @@
 /* CSS Document */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    display: flex;
+    flex-direction: column; /* Centers content */
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
 
+.container {
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    margin: auto;
+}
 
-	body {
-		font-family: Arial, sans-serif;
-		background-color: #f4f6f8;
-		color: #333;
-		display: flex;
+/* Fix: Make courses appear side-by-side */
+.courses {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping when the screen is small */
+    justify-content: center; /* Centers courses horizontally */
+    gap: 20px; /* Space between course cards */
+    margin-top: 20px;
+}
 
-	h1 {
-		font-size: 2rem;
-		color: #333;
-		margin-bottom: 1rem;
-	}
+.course {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Fixed width for each course */
+    text-align: center;
+    flex: 1 1 calc(33.333% - 20px); /* Makes them take up a third of the row */
+    max-width: 300px;
+}
 
+/* Course Images */
+.course img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
 
-	label {
-		display: block;
-		font-size: 1rem;
-		color: #666;
+/* Buttons */
+.back-button, .logout-section {
+    margin: 10px 0;
+}
 
-	.error {
-		color: red;
-		margin-top: 1rem;
-	}
-
-	.user-info {
-		position: absolute;
-		top: 20px;
-		right: 20px;
-		background-color: #fff;
-		padding: 15px;
-		border-radius: 8px;
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-		text-align: right;
-	}
-
-	.user-info p {
-		margin: 5px 0;
-		font-size: 0.9em;
-		color: #555;
-	}
-
-
-	.header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 10px 20px;
-		background-color: #333;
-		color: white;
-	}
-
-	.header .nav-buttons {
-		display: flex;
-		gap: 20px;
-	}
-
-	.header .nav-buttons a {
-		color: white;
-		text-decoration: none;
-		padding: 10px 15px;
-		background-color: #444;
-		border-radius: 5px;
-	}
-
-			padding: 1rem;
-		}
-
-		h1 {
-			font-size: 1.5rem;
-		}
-	}
+.back-link, .logout-button {
+    text-decoration: none;
+    padding: 10px 20px;
+    background: #ff9800;
+    color: white;
+    border-radius: 5px;
+    display: inline-block;
+}

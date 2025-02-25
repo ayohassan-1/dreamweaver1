@@ -114,7 +114,7 @@ try {
         </div>
         <div class="nav-buttons center-button">
             <!-- Changed link to redirect to the new classroom page -->
-            <a href="/classrooms/classroom.php?course_id=<?php echo $course_id; ?>">Classroom</a>
+            <a href="/classroom.php?course_id=<?php echo $course_id; ?>">Classroom</a>
         </div>
         <div class="nav-buttons">
             <a href="#about-section">About</a>

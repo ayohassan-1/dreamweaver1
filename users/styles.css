@@ -1,4 +1,4 @@
- /* Global Styles */
+/* Global Styles */
 *,
 *::before,
 *::after {
@@ -8,7 +8,7 @@
 body {
     font-family: 'Roboto', Helvetica, Arial, sans-serif;
     font-size: 0.875rem;
-    background-color: rgb(34, 34, 34);
+    background-color: rgb(18, 18, 18);
     color: rgb(228, 228, 228);
     margin: 0;
     padding: 0;
@@ -20,31 +20,34 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    background-color: #1e1e1e;
+    background-color: #1a1a1a;
     position: relative;
 }
 
-.logo {
-    font-size: 24px;
+/* View Enrolled Courses & Profile */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Adds spacing between profile and enrolled courses */
+}
+
+/* View Enrolled Courses Button */
+.view-courses {
+    font-size: 16px; /* Matches Skool.com */
+    font-weight: bold;
     color: white;
-    font-weight: bold;
-    text-align: center;
-    flex: 1;
-}
-
-.logout-button {
-    background-color: red;
-    color: black;
-    padding: 10px 15px;
-    font-weight: bold;
-    border-radius: 5px;
-    border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: color 0.3s ease;
 }
 
-.logout-button:hover {
-    background-color: #e60000;
+.view-courses:hover {
+    color: #b0b0b0;
+}
+
+/* PROFILE DROPDOWN */
+.profile-container {
+    position: relative;
+    display: inline-block;
 }
 
 .profile-pic {
@@ -52,29 +55,62 @@ body {
     height: 40px;
     border-radius: 50%;
     cursor: pointer;
+    background-color: gray;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+.dropdown-content a:hover {
+    background-color: #1D1616;
+}
+
+.show {
+    display: block;
 }
 
 /* SEARCH BAR */
 .search-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 10px;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .search-container input {
-    padding: 10px;
-    width: 50%;
-    max-width: 400px;
+    padding: 12px;
+    width: 60%;
+    max-width: 500px;
     border-radius: 5px;
     border: none;
     background-color: #2D2424;
     color: white;
+    font-size: 16px;
 }
 
+/* Search Button */
 .search-button {
     background-color: lightskyblue;
-    padding: 10px 15px;
+    padding: 12px 18px;
+    font-size: 16px;
     font-weight: bold;
     border: none;
     cursor: pointer;
@@ -85,35 +121,27 @@ body {
     background-color: deepskyblue;
 }
 
-/* PROFILE DROPDOWN */
-.dropdown {
-    position: relative;
-    display: inline-block;
+/* ADD COURSE BUTTON */
+.add-course {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #333;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border-radius: 8px;
-}
-
-.dropdown-content a {
+.add-course button {
+    padding: 12px 25px;
+    background-color: blue;
     color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.dropdown-content a:hover {
-    background-color: #1D1616;
-}
-
-.show {
-    display: block;
+.add-course button:hover {
+    background-color: darkblue;
 }
 
 /* COURSES SECTION */
@@ -125,7 +153,7 @@ body {
     padding: 20px;
 }
 
-/* Course Link to make the whole card clickable */
+/* Course Link */
 .course-link {
     text-decoration: none;
     color: inherit;
@@ -135,6 +163,7 @@ body {
 .course {
     background-color: #1e1e1e;
     width: 280px;
+    height: 350px;
     text-align: center;
     border-radius: 12px;
     overflow: hidden;
@@ -161,6 +190,10 @@ body {
 
 .course-content {
     padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .course h2 {
@@ -176,11 +209,7 @@ body {
     margin-bottom: 10px;
 }
 
-.enroll-button {
-    display: none;
-}
-
-/* Footer */
+/* FOOTER */
 footer {
     text-align: center;
     padding: 20px;
@@ -192,4 +221,78 @@ footer {
 footer p {
     margin: 0;
     font-size: 0.875rem;
+}
+
+
+/* CLASSROOM PAGE STYLES */
+.classroom-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+/* VIDEO PLAYER */
+.video-wrapper {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    border: 3px solid grey;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 500px;
+    display: block;
+    border: none;
+}
+
+/* BACK TO COURSES BUTTON */
+.back-to-courses {
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: transparent;
+    border: 2px solid grey;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.back-to-courses:hover {
+    background-color: grey;
+    color: black;
+}
+
+/* CLASSROOM CONTENT */
+.classroom-content {
+    margin-top: 20px;
+    width: 80%;
+    max-width: 900px;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.classroom-content h1 {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.classroom-content p {
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.5;
 }
