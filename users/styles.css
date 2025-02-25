@@ -222,3 +222,134 @@ footer p {
     margin: 0;
     font-size: 0.875rem;
 }
+
+
+/* CLASSROOM PAGE STYLES */
+.classroom-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+/* VIDEO PLAYER */
+.video-wrapper {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    border: 3px solid grey;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 500px;
+    display: block;
+    border: none;
+}
+
+/* BACK TO COURSES BUTTON */
+.back-to-courses {
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: transparent;
+    border: 2px solid grey;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.back-to-courses:hover {
+    background-color: grey;
+    color: black;
+}
+
+/* CLASSROOM CONTENT */
+.classroom-content {
+    margin-top: 20px;
+    width: 80%;
+    max-width: 900px;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.classroom-content h1 {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.classroom-content p {
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+
+/* Apply styles to the whole page */
+body {
+    background-color: #333; /* Dark grey background */
+    color: white; /* White text for readability */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Style the container */
+.register-container {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 300px;
+}
+
+/* Style form elements */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #bbb; /* Light grey textbox */
+    color: #333;
+    font-size: 16px;
+}
+
+/* Style the button */
+button {
+    background-color: #FFD700; /* Gold-like color */
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #E6C200;
+}
