@@ -33,7 +33,7 @@ body {
 
 .back-button:hover {
     background: blue;
-    color: white;
+    color: darkgrey;
 }
 
 /* Main Content */
