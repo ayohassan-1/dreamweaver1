@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 require_once 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $title = htmlspecialchars($_POST['title']);
+    $title = htmlspecialchars($_POST['title']); 
     $description = htmlspecialchars($_POST['description']);
     $youtubeLink = htmlspecialchars($_POST['youtubeLink']);
     $imageUrl = filter_var($_POST['imageUrl'], FILTER_VALIDATE_URL);
@@ -43,9 +43,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Course</title>
-    <link rel="stylesheet" href="/createcorusestyle/style.css">
+    <link rel="stylesheet" href="/createcorusestyle/style1.css">
 </head>
 <body>
+    <!-- Stars Container -->
+    <div class="stars-container">
+        <?php for ($i = 0; $i < 30; $i++): ?>
+            <div class="star" style="left: <?= rand(0, 100) ?>vw; animation-duration: <?= rand(8, 15) ?>s; animation-delay: <?= rand(0, 5) ?>s;"></div>
+        <?php endfor; ?>
+    </div>
+
     <div class="container">
         <h1>Create a New Course</h1>
         <form action="createCourse.php" method="post">
