@@ -56,7 +56,7 @@ try {
 </head>
 <body>
     <header class="header">
-        <a href="landing.php" class="back-button">Back to Courses</a>
+        <a href="/users/landing.php" class="back-button">Back to Courses</a>
     </header>
 
     <main class="classroom-container">
