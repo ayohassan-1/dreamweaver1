@@ -1,0 +1,57 @@
+/* Overall page styling */
+body {
+    background-color: #121212; /* Dark background */
+    color: white; /* White text for readability */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+/* Headings */
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Labels */
+label {
+    display: block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Input fields */
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    color: white;
+    font-size: 16px;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background-color: #f0ad4e; /* Golden button */
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #d89c3c;
+}
