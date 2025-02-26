@@ -8,7 +8,7 @@
 body {
     font-family: 'Roboto', Helvetica, Arial, sans-serif;
     font-size: 0.875rem;
-    background-color: rgb(18, 18, 18);
+    background-color: rgb(34, 34, 34);
     color: rgb(228, 228, 228);
     margin: 0;
     padding: 0;
@@ -19,55 +19,100 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
-    background-color: #1a1a1a;
+    padding: 20px 10px;
+    background-color: #1e1e1e;
     position: relative;
 }
 
-/* View Enrolled Courses & Profile */
-.header-right {
+/* Logo */
+.logo {
+    font-size: 38px; /* 5x larger */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    flex: 1;
+}
+
+/* Navigation Container */
+.nav-container {
     display: flex;
     align-items: center;
-    gap: 15px; /* Adds spacing between profile and enrolled courses */
+    gap: 15px;
 }
 
-/* View Enrolled Courses Button */
-.view-courses {
-    font-size: 16px; /* Matches Skool.com */
-    font-weight: bold;
+/* Profile Button */
+.profile-button {
+    background-color: #4CAF50; /* Green */
     color: white;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
     cursor: pointer;
-    transition: color 0.3s ease;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
-.view-courses:hover {
-    color: #b0b0b0;
+.profile-button:hover {
+    background-color: #45a049;
 }
 
-/* PROFILE DROPDOWN */
-.profile-container {
-    position: relative;
-    display: inline-block;
+/* Add Course Button */
+.add-course-button {
+    background-color: #007BFF; /* Blue */
+    color: white;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
+.add-course-button:hover {
+    background-color: #0056b3;
+}
+
+/* Logout Button */
+.logout-button {
+    background-color: red;
+    color: black;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #e60000;
+}
+
+/* PROFILE IMAGE */
 .profile-pic {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     cursor: pointer;
-    background-color: gray;
+}
+
+/* PROFILE DROPDOWN */
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    right: 0;
     background-color: #333;
     min-width: 160px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 10;
+    z-index: 1;
     border-radius: 8px;
-    text-align: left;
+    right: 0;
 }
 
 .dropdown-content a {
@@ -75,7 +120,6 @@ body {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    font-size: 14px;
 }
 
 .dropdown-content a:hover {
@@ -90,27 +134,23 @@ body {
 .search-container {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 10px;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 .search-container input {
-    padding: 12px;
-    width: 60%;
-    max-width: 500px;
+    padding: 10px;
+    width: 50%;
+    max-width: 400px;
     border-radius: 5px;
     border: none;
     background-color: #2D2424;
     color: white;
-    font-size: 16px;
 }
 
-/* Search Button */
 .search-button {
     background-color: lightskyblue;
-    padding: 12px 18px;
-    font-size: 16px;
+    padding: 10px 15px;
     font-weight: bold;
     border: none;
     cursor: pointer;
@@ -119,29 +159,6 @@ body {
 
 .search-button:hover {
     background-color: deepskyblue;
-}
-
-/* ADD COURSE BUTTON */
-.add-course {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.add-course button {
-    padding: 12px 25px;
-    background-color: blue;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.add-course button:hover {
-    background-color: darkblue;
 }
 
 /* COURSES SECTION */
@@ -153,7 +170,7 @@ body {
     padding: 20px;
 }
 
-/* Course Link */
+/* Course Link to make the whole card clickable */
 .course-link {
     text-decoration: none;
     color: inherit;
@@ -163,7 +180,6 @@ body {
 .course {
     background-color: #1e1e1e;
     width: 280px;
-    height: 350px;
     text-align: center;
     border-radius: 12px;
     overflow: hidden;
@@ -190,26 +206,22 @@ body {
 
 .course-content {
     padding: 15px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .course h2 {
-    font-size: 18px;
+    font-size: 25px;
     color: white;
     font-weight: bold;
     margin: 10px 0;
 }
 
 .course p {
-    font-size: 14px;
+    font-size: 15px;
     color: #ccc;
     margin-bottom: 10px;
 }
 
-/* FOOTER */
+/* Footer */
 footer {
     text-align: center;
     padding: 20px;
@@ -223,76 +235,3 @@ footer p {
     font-size: 0.875rem;
 }
 
-
-/* CLASSROOM PAGE STYLES */
-.classroom-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
-    text-align: center;
-}
-
-/* VIDEO PLAYER */
-.video-wrapper {
-    position: relative;
-    width: 80%;
-    max-width: 900px;
-    border: 3px solid grey;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.video-wrapper iframe {
-    width: 100%;
-    height: 500px;
-    display: block;
-    border: none;
-}
-
-/* BACK TO COURSES BUTTON */
-.back-to-courses {
-    margin-top: 20px;
-    padding: 12px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    background-color: transparent;
-    border: 2px solid grey;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.back-to-courses:hover {
-    background-color: grey;
-    color: black;
-}
-
-/* CLASSROOM CONTENT */
-.classroom-content {
-    margin-top: 20px;
-    width: 80%;
-    max-width: 900px;
-    padding: 20px;
-    background-color: #1e1e1e;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.classroom-content h1 {
-    font-size: 24px;
-    color: white;
-    margin-bottom: 15px;
-}
-
-.classroom-content p {
-    font-size: 16px;
-    color: #ccc;
-    line-height: 1.5;
-}
