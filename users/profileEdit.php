@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
-    <link rel="stylesheet" href="/profileeditStyle/style.css">
+    <link rel="stylesheet" href="/users/profileeditStyle/style.css">
 </head>
 <body>
     <div class="profile-edit-container">
@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="file" name="profile_pic" id="profile_pic">
             <button type="submit">Save Changes</button>
         </form>
+        <a href="/users/landing.php" class="back-home-button">Back to Home</a>
     </div>
 </body>
 </html>
