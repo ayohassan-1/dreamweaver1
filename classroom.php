@@ -52,7 +52,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($course['title']); ?> - Classroom</title>
-    <link rel="stylesheet" href="/classroomsStyle/style.css"=<?php echo time(); ?>">
+    <link rel="stylesheet" href="/classroomsStyle/style.css?v=<?php echo time(); ?>">
 </head>
 <body>
     <header class="header">
