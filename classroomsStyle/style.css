@@ -1,51 +1,90 @@
-/* CSS Document */
-
+/* General Styles */
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    text-align: center;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
 }
 
+/* Header */
 .header {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    background-color: #f8f9fa;
+    background: #ffffff;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .back-button {
-    padding: 10px 15px;
+    display: inline-block;
+    padding: 10px 20px;
     border: 2px solid blue;
-    border-radius: 5px;
-    text-decoration: none;
     color: blue;
-    font-size: 16px;
+    text-decoration: none;
     font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
 }
 
 .back-button:hover {
-    background-color: blue;
+    background: blue;
     color: white;
 }
 
+/* Main Content */
 .classroom-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
+    text-align: center;
     max-width: 900px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
+.classroom-container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.classroom-container p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Video Section */
 .video-container {
-    position: absolute;
-    right: 10%;
-    top: 50%;
-    transform: translateY(-50%);
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.video-container iframe {
+    width: 560px;
+    height: 315px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .video-container {
+        justify-content: center;
+    }
+    
+    .video-container iframe {
+        width: 100%;
+        height: auto;
+    }
 }
