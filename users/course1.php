@@ -124,7 +124,7 @@ try {
     <div class="container">
         <h1><?php echo htmlspecialchars($course['title']); ?></h1>
         <p id="about-section"><?php echo htmlspecialchars($course['description']); ?></p>
-        <img src="<?php echo htmlspecialchars($course['image_url']); ?>" alt="Course Image" style="max-width: 100%; height: auto;">
+        <img src="<?php echo htmlspecialchars($course['image_url']); ?>" alt="Course Image" style="width: 800px; height: 400px; object-fit: cover; display: block; margin: 0 auto;">
 
         <!-- Display Classrooms -->
         <h2>Classrooms</h2>
