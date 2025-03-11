@@ -5,17 +5,18 @@ $username = 'u237055794_Self';
 $password = 'B5Z[2s*b]';
 
 try {
-    // Create a new PDO instance
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     error_log("Database connection failed: " . $e->getMessage());
-    exit("Database connection failed."); // Stop further execution if connection fails
+    exit("Database connection failed.");
 }
 
-// Function to retrieve all user emails
-function getAllUserEmails($pdo) {
-    $stmt = $pdo->prepare("SELECT email FROM users");
+// Function to retrieve all enrolled users
+function getEnrolledUsers($pdo) {
+    $stmt = $pdo->prepare("SELECT e.user_id, e.name, e.email, e.enrollment_date 
+                           FROM enrollments e 
+                           INNER JOIN users u ON e.user_id = u.uid");
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -25,7 +26,7 @@ function addUser($pdo, $username, $password, $email, $role) {
     $stmt = $pdo->prepare("INSERT INTO users (uName, pWord, email, role, regDate) 
                            VALUES (:uName, :pWord, :email, :role, NOW())");
     $stmt->bindParam(':uName', $username);
-    $stmt->bindParam(':pWord', $password); // Store the plain-text password
+    $stmt->bindParam(':pWord', $password);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':role', $role);
     return $stmt->execute();
