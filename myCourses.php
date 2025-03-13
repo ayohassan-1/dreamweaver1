@@ -3,10 +3,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Start the session if it's not already started
 session_start();
 
-// Check if the user is logged in
+// Redirect if the user is not logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: users/login.php");
     exit();
@@ -15,16 +14,17 @@ if (!isset($_SESSION['user_id'])) {
 // Include the database connection file
 require_once 'users/db.php';
 
-// Fetch the courses the user is enrolled in
+// Fetch enrolled courses initially
+$user_id = $_SESSION['user_id'];
 try {
-    $user_id = $_SESSION['user_id'];
-    $stmt = $pdo->prepare("SELECT c.title, c.description, c.youtube_link, c.image_url FROM courses c
+    $stmt = $pdo->prepare("SELECT c.id, c.title, c.description, c.youtube_link, c.image_url 
+                            FROM courses c
                             INNER JOIN enrollments e ON c.id = e.course_id
                             WHERE e.user_id = ?");
     $stmt->execute([$user_id]);
     $enrolledCourses = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-    error_log("Failed to fetch enrolled courses: " . $e->getMessage());
+    error_log("Database error: " . $e->getMessage());
     $enrolledCourses = [];
 }
 ?>
@@ -35,11 +35,30 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Courses</title>
-    <link rel="stylesheet" href="/users/style.css"> <!-- Linking to style.css -->
+    <link rel="stylesheet" href="/users/style.css">
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("searchInput").addEventListener("input", searchCourses);
+    });
+
+    function searchCourses() {
+        let query = document.getElementById("searchInput").value.trim();
+        let xhr = new XMLHttpRequest();
+        
+        xhr.open("GET", "fetch_courses.php?search=" + encodeURIComponent(query), true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                document.getElementById("coursesContainer").innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send();
+    }
+</script>
+
 </head>
 <body>
     <div class="container">
-        <!-- Back to Landing Page Button -->
+        <!-- Back Button -->
         <div class="back-button">
             <a href="/users/landing.php" class="back-link">Back to Landing Page</a>
         </div>
@@ -47,9 +66,15 @@ try {
         <!-- Header -->
         <h1>My Enrolled Courses</h1>
 
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search Enrolled Courses...">
+            <button class="search-button" onclick="searchCourses()">Search</button>
+        </div>
+
         <!-- Enrolled Courses Section -->
-        <div class="courses">
-            <?php if (count($enrolledCourses) > 0): ?>
+        <div class="courses" id="coursesContainer">
+            <?php if (!empty($enrolledCourses)): ?>
                 <?php foreach ($enrolledCourses as $course): ?>
                     <div class="course">
                         <h2><?php echo htmlspecialchars($course['title']); ?></h2>
@@ -80,4 +105,3 @@ try {
     </div>
 </body>
 </html>
-

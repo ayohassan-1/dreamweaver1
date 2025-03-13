@@ -43,15 +43,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Course</title>
-    <link rel="stylesheet" href="/createcorusestyle/style1.css">
+    <link rel="stylesheet" href="/createcorusestyle/style.css">
 </head>
 <body>
     <!-- Stars Container -->
-    <div class="stars-container">
-        <?php for ($i = 0; $i < 30; $i++): ?>
-            <div class="star" style="left: <?= rand(0, 100) ?>vw; animation-duration: <?= rand(8, 15) ?>s; animation-delay: <?= rand(0, 5) ?>s;"></div>
-        <?php endfor; ?>
-    </div>
+    <div class="stars-container"></div>
 
     <div class="container">
         <h1>Create a New Course</h1>
@@ -77,5 +73,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="submit-button">Create Course</button>
         </form>
     </div>
+
+    <!-- External JavaScript -->
+    <script src="/createcorusestyle/script.js"></script>
 </body>
 </html>

@@ -3,8 +3,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1c1c1c; /* Darker background */
-    color: #ccc;
+    background-color: #2c2c2c; /* Dark Background */
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,28 +14,25 @@ body {
 /* Header */
 .header {
     width: 100%;
-    background: #ffffff;
+    background: #222222; /* Match background */
     padding: 15px 0;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border: 2px solid blue;
 }
 
 .back-button {
     display: inline-block;
     padding: 10px 20px;
-    border: 2px solid blue;
-    color: blue;
+    color: white;
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
     transition: 0.3s ease-in-out;
-    margin: auto;
+    border: 2px solid transparent; /* Remove border */
 }
 
 .back-button:hover {
-    background: blue;
-    color: #1c1c1c;
+    background: gray;
 }
 
 /* Main Content */
@@ -48,74 +45,71 @@ body {
     width: 100%;
     margin: 30px auto;
     padding: 20px;
-    background: #222; /* Darker box */
+    background: #222222;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
-    border: 2px solid blue;
 }
 
-.classroom-container h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: white;
-}
-
-.classroom-container p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: white;
-}
-
-/* Video Section */
+/* Video Wrapper */
 .video-wrapper {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    max-width: 600px;
 }
 
+/* Video Section */
 .video-container {
-    position: relative;
     display: flex;
     justify-content: center;
     width: 100%;
     margin-top: 20px;
+    padding: 10px;
 }
 
 .video-container iframe {
     width: 560px;
     height: 315px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 /* Checkmark Button */
 .checkmark-button {
     position: absolute;
-    top: -10px;
-    right: 0;
-    background: white;
-    color: black;
-    border: 2px solid black;
+    top: -15px;
+    right: -15px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    font-size: 18px;
-    font-weight: bold;
+    background: gray;
+    color: white;
+    font-size: 20px;
+    border: none;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.checkmark-button:hover {
+    background: lightgray;
 }
 
 .checkmark-button.checked {
     background: green;
-    color: white;
-    border-color: darkgreen;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .video-container {
+        justify-content: center;
+    }
+    
     .video-container iframe {
         width: 100%;
         height: auto;

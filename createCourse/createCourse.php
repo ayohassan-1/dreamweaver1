@@ -19,16 +19,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($imageUrl && $classroomImageUrl) {
         try {
-            // Assuming you have a function to add classrooms or courses
-            $courseAdded = addCourse($pdo, $title, $description, $youtubeLink, $imageUrl, $classroomImageUrl, $classroomDescription);
+            // Insert course and get the correct ID
+            $sql = "INSERT INTO courses (title, description, youtube_link, image_url, classroom_image_url, classroom_description) 
+                    VALUES (:title, :description, :youtubeLink, :imageUrl, :classroomImageUrl, :classroomDescription)";
+            
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([
+                ':title' => $title,
+                ':description' => $description,
+                ':youtubeLink' => $youtubeLink,
+                ':imageUrl' => $imageUrl,
+                ':classroomImageUrl' => $classroomImageUrl,
+                ':classroomDescription' => $classroomDescription
+            ]);
 
-            if ($courseAdded) {
-                // Redirecting to the correct classroom page
-                header("Location: ../classrooms/classroom.php?classroomid=" . $courseAdded);
-                exit();
-            } else {
-                echo "Error adding course. Please try again.";
-            }
+            // Get the last inserted ID
+            $courseId = $pdo->lastInsertId();
+
+          
+            // Redirecting to the correct classroom page
+            header("Location: ../users/course1.php?course_id=" . $courseId);
+            exit();
         } catch (PDOException $e) {
             error_log("Failed to add course: " . $e->getMessage());
             echo "Error adding course. Please try again.";

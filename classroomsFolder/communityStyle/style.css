@@ -1,0 +1,73 @@
+/* General Styling for Community Page */
+body {
+    background-color: #2d2d2d;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Container for user entries */
+.user-container {
+    background-color: #1f1f1f;
+    border: 1px solid #b0b0b0;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Username Styling */
+.username {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Email Styling */
+.email {
+    font-size: 0.9em;
+    color: #b0b0b0;
+    margin-top: 3px;
+}
+
+/* Reason for Enrolling */
+.reason {
+    font-size: 1em;
+    color: #d0d0d0;
+    margin-top: 5px;
+}
+
+/* Joined Date Section */
+.joined {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    color: #b0b0b0;
+    margin-top: 8px;
+}
+
+/* Small Calendar Icon */
+.joined::before {
+    content: '\1F4C5'; /* Unicode for Calendar Emoji */
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+
+/* Members Box */
+.members-box {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid #b0b0b0;
+    background-color: #333;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Line Break for New Student Display */
+.user-container + .user-container {
+    margin-top: 20px;
+}

@@ -1,9 +1,10 @@
 <?php
-// Start the session and include the database connection
 session_start();
+
+// Include the database connection
 require_once '../db.php';
 
-// Debugging mode (set to true to see detailed errors)
+// Debugging mode (set to true for detailed errors)
 $debug = true;
 
 try {
@@ -14,8 +15,8 @@ try {
 
     $course_id = intval($_GET['course_id']);
 
-    // Fetch course details using the provided course ID
-    $stmt = $pdo->prepare("SELECT * FROM courses WHERE id = :course_id");
+    // Fetch course details including YouTube link
+    $stmt = $pdo->prepare("SELECT youtubeLink FROM courses WHERE id = :course_id");
     $stmt->bindParam(':course_id', $course_id, PDO::PARAM_INT);
     $stmt->execute();
     $course = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -24,22 +25,21 @@ try {
         throw new Exception("Error: No course found with ID {$course_id}.");
     }
 
-    // Fetch classrooms related to the course
-    $stmtClassrooms = $pdo->prepare("SELECT * FROM classrooms WHERE course_id = :course_id");
-    $stmtClassrooms->bindParam(':course_id', $course_id, PDO::PARAM_INT);
-    $stmtClassrooms->execute();
-    $classrooms = $stmtClassrooms->fetchAll(PDO::FETCH_ASSOC);
+    // Extract the YouTube video ID from the URL
+    preg_match("/v=([a-zA-Z0-9_-]+)/", $course['youtubeLink'], $matches);
+    $video_id = $matches[1] ?? null;
 
+    if (!$video_id) {
+        throw new Exception("Error: Invalid YouTube link.");
+    }
 } catch (Exception $e) {
     if ($debug) {
-        // Display the error details in debug mode
         echo "<h3>Debug Error:</h3>";
         echo "<p>" . $e->getMessage() . "</p>";
         echo "<pre>";
         print_r($e->getTrace());
         echo "</pre>";
     } else {
-        // Display a generic error in production
         echo "<p>Oops, something went wrong! Please try again later.</p>";
     }
     exit();
@@ -51,26 +51,15 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($course['title']); ?> - Classroom</title>
-    <link rel="stylesheet" href="/users/styles.css">
+    <title>Classroom</title>
+    <link rel="stylesheet" href="/classrooms/style.css">
 </head>
 <body>
     <div class="container">
-        <h1><?php echo htmlspecialchars($course['title']); ?> - Classroom</h1>
-
-        <?php if (!empty($classrooms)): ?>
-            <h2>Classrooms:</h2>
-            <div class="classrooms">
-                <?php foreach ($classrooms as $classroom): ?>
-                    <div class="classroom">
-                        <img src="<?php echo htmlspecialchars($classroom['image']); ?>" alt="<?php echo htmlspecialchars($classroom['title']); ?>" style="max-width: 100%; height: auto;">
-                        <p><?php echo htmlspecialchars($classroom['description']); ?></p>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        <?php else: ?>
-            <p>No classrooms found for this course.</p>
-        <?php endif; ?>
+        <h1>Classroom Video</h1>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo htmlspecialchars($video_id); ?>" frameborder="0" allowfullscreen></iframe>
+        </div>
     </div>
 </body>
 </html>

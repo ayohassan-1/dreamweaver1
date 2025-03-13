@@ -17,7 +17,7 @@ if (!isset($_GET['course_id'])) {
 }
 
 // Correct the path to db.php
-require_once 'db.php';
+require_once '../db.php';
 
 // Fetch the course details
 try {
@@ -52,7 +52,8 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($course['title']); ?> - Classroom</title>
-<link rel="stylesheet" href="classroomsStyle/style.css">
+<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <header class="header">
