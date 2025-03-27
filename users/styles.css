@@ -14,6 +14,8 @@ body {
     padding: 0;
 }
 
+
+
 /* HEADER */
 .header {
     display: flex;
@@ -22,88 +24,83 @@ body {
     padding: 20px 40px;
     background-color: #1e1e1e;
     position: relative;
+    gap: 20px; /* Ensures spacing between elements */
 }
+
+.view-courses {
+    border: 2px solid grey; 
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.view-courses:hover {
+    background-color: grey;
+    color: black;
+}
+
+
+/* Log Out Button on the Left */
+.logout-button-left {
+    background-color: #f44336; /* Red color for the logout button */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logout-button-left:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
 
 /* Logo */
 .logo {
-    font-size: 48px; /* 5x larger */
+    font-size: 38px;
     color: white;
     font-weight: bold;
     text-align: center;
+    margin: 0 auto; /* Ensures it's centered */
     flex: 1;
 }
 
-/* Navigation Container */
-.nav-container {
+.profile-container {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px; /* Adjust spacing as needed */
 }
 
 /* Profile Button */
 .profile-button {
-    background-color: #4CAF50; /* Green */
-    color: white;
-    padding: 10px 15px;
-    font-weight: bold;
-    border-radius: 5px;
+    background: none;
     border: none;
+    padding: 0;
     cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.profile-button:hover {
-    background-color: #45a049;
-}
-
-/* Add Course Button */
-.add-course-button {
-    background-color: #007BFF; /* Blue */
-    color: white;
-    padding: 10px 15px;
-    font-weight: bold;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.add-course-button:hover {
-    background-color: #0056b3;
-}
-
-/* Logout Button */
-.logout-button {
-    background-color: red;
-    color: black;
-    padding: 10px 15px;
-    font-weight: bold;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.logout-button:hover {
-    background-color: #e60000;
-}
-
-/* PROFILE IMAGE */
+/* Profile Picture */
 .profile-pic {
-    width: 40px;
-    height: 40px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
+    object-fit: cover;
     cursor: pointer;
 }
 
-/* PROFILE DROPDOWN */
-.dropdown {
-    position: relative;
-    display: inline-block;
+.profile-button span {
+    font-size: 14px;
+    color: #000;
 }
 
+/* Profile Dropdown */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -130,55 +127,52 @@ body {
     display: block;
 }
 
-/* SEARCH BAR */
+/* Search Container */
 .search-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
+    position: relative;
+    width: 30%;
+    margin: 40px auto;
 }
 
 .search-container input {
-    padding: 10px;
-    width: 50%;
-    max-width: 400px;
-    border-radius: 5px;
-    border: none;
-    background-color: #2D2424;
-    color: white;
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 14px;
+    border: 3px solid #444;
+    border-radius: 20px;
+    background-color: #333;
+    color: #d3d3d3;
 }
 
-.search-button {
-    background-color: lightskyblue;
-    padding: 10px 15px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #d3d3d3;
+    font-size: 18px;
+    pointer-events: none;
 }
 
-.search-button:hover {
-    background-color: deepskyblue;
-}
-
-/* COURSES SECTION */
+/* Courses Section */
 .courses-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
+    gap: 75px;
+    padding: 75px;
 }
 
-/* Course Link to make the whole card clickable */
 .course-link {
     text-decoration: none;
     color: inherit;
 }
 
-/* Individual Course Cards */
 .course {
-    background-color: #1e1e1e;
+    background-color: #333035;
     width: 280px;
     text-align: center;
     border-radius: 12px;
@@ -198,7 +192,90 @@ body {
 
 .course-image {
     width: 100%;
-    height: 160px;
+    height: 155px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.course-content {
+    padding: 15px;
+}
+
+.course h2 {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.container {
+    text-align: center; /* Center the text inside the container */
+    margin-top: 50px; /* Add some space at the top if needed */
+}
+
+.container h1 {
+    font-size: 46px; /* Make the h1 text bigger */
+    color: #FFFFFF;     /* Optional: Set a dark color for the h1 text */
+}
+
+.container p {
+    font-size: 18px; /* Make the paragraph text bigger */
+    color: #d3d3d3;   /* Light grey color for the paragraph text */
+}
+
+.container .create-course {
+    color: #1E90FF;    /* Blue color for the link */
+    font-weight: bold;
+    text-decoration: none; /* Remove underline from the link */
+    font-size: 18px;  /* Make the link text bigger */
+}
+
+.container .create-course:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+
+
+
+/* COURSES SECTION */
+.courses-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 75px;
+    padding: 75px;
+}
+
+/* Course Link to make the whole card clickable */
+.course-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Individual Course Cards */
+.course {
+    background-color: #333035;
+    width: 280px;
+    text-align: center;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.course:hover {
+    background-color: #13172B;
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.course-image {
+    width: 100%;
+    height: 155px;
     object-fit: cover;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
@@ -221,16 +298,3 @@ body {
     margin-bottom: 10px;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #13172B;
-    color: white;
-    position: relative;
-}
-
-footer p {
-    margin: 0;
-    font-size: 0.875rem;
-}

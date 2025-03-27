@@ -33,14 +33,15 @@ function addUser($pdo, $username, $password, $email, $role) {
 }
 
 // Function to add a course to the database
-function addCourse($pdo, $title, $description, $youtubeLink, $imageUrl) {
-    $stmt = $pdo->prepare("INSERT INTO courses (title, description, youtube_link, image_url, created_at)
-                           VALUES (:title, :description, :youtubeLink, :imageUrl, NOW())");
+function addCourse($pdo, $title, $description, $youtube_link, $imageUrl, $about) {
+    $stmt = $pdo->prepare("INSERT INTO courses (title, description, youtube_link, image_url, about, created_at)
+                           VALUES (:title, :description, :youtube_link, :image_url, :about, NOW())");
     $stmt->bindParam(':title', $title);
     $stmt->bindParam(':description', $description);
-    $stmt->bindParam(':youtubeLink', $youtubeLink);
-    $stmt->bindParam(':imageUrl', $imageUrl);
-    return $stmt->execute();
+    $stmt->bindParam(':youtube_link', $youtube_link);
+    $stmt->bindParam(':image_url', $imageUrl);
+    $stmt->bindParam(':about', $about);
+    return $stmt->execute() ? $pdo->lastInsertId() : false;
 }
 
 // Function to fetch all courses from the database

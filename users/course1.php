@@ -8,21 +8,25 @@ require_once '../db.php';
 $debug = true;
 
 try {
-    if (!isset($_GET['course_id']) || empty($_GET['course_id'])) {
-        throw new Exception("Error: Course ID is missing from the URL.");
+    // Check if the course_id is passed in the URL and ensure it's valid
+    if (!isset($_GET['course_id']) || empty($_GET['course_id']) || !is_numeric($_GET['course_id'])) {
+        throw new Exception("Error: Invalid or missing course ID.");
     }
 
-    $course_id = intval($_GET['course_id']);
+    $course_id = intval($_GET['course_id']); // Cast to integer for safety
 
+    // Query to fetch course details from the database
     $stmt = $pdo->prepare("SELECT * FROM courses WHERE id = :course_id");
     $stmt->bindParam(':course_id', $course_id, PDO::PARAM_INT);
     $stmt->execute();
     $course = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    // Check if the course exists
     if (!$course) {
         throw new Exception("Error: No course found with ID {$course_id}.");
     }
 } catch (Exception $e) {
+    // Display error details in debug mode, otherwise show a generic message
     if ($debug) {
         echo "<h3>Debug Error:</h3>";
         echo "<p>" . $e->getMessage() . "</p>";
@@ -119,7 +123,7 @@ try {
             <a href="/classroomsFolder/classroom.php?course_id=<?php echo $course_id; ?>">Classroom</a>
         </div>
         <div class="nav-buttons">
-            <a href="/communityFolder/community.php?course_id=<?php echo $course_id; ?>">Community</a>
+            <a href="/communityFolder/community.php?course_id=<?php echo $course_id; ?>&classroom_id=1">Community</a>
         </div>
     </div>
 
@@ -131,11 +135,12 @@ try {
         <h2>Classrooms</h2>
         <div class="classrooms">
             <?php
+            // Check if the 'classrooms' field contains a valid JSON string
             $classrooms = json_decode($course['classrooms'], true);
-            if (!empty($classrooms)) {
+            if (json_last_error() === JSON_ERROR_NONE && !empty($classrooms)) {
                 foreach ($classrooms as $classroom) {
                     echo "<div class='classroom'>";
-                    echo "<a href='/classrooms/classroom.php?course_id=" . $course_id . "'>";
+                    echo "<a href='/classrooms/classroom.php?course_id=" . $course_id . "&classroom_id=" . urlencode($classroom['id']) . "'>";
                     echo "<img src='" . htmlspecialchars($classroom['image']) . "' alt='" . htmlspecialchars($classroom['title']) . "'>";
                     echo "</a>";
                     echo "<p>" . htmlspecialchars($classroom['description']) . "</p>";

@@ -1,77 +1,174 @@
-/* General Styling for Community Page */
+/* General Page Background */
 body {
-    background-color: #000; /* Black background restored */
-    color: white;
+    background-color: #222;
+    color: #eee;
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    overflow-y: auto;
 }
 
-/* Container for community page content */
-.community-container {
-    max-width: 800px;
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 15px;
+    background-color: #222;
+    border-radius: 10px;
+}
+
+/* Navigation Buttons Styling */
+.nav-buttons a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 2px solid #333;
+    transition: background-color 0.3s;
+}
+
+.nav-buttons a:hover {
+    background-color: #596868;
+}
+
+/* Centered Navigation Button */
+.center-button {
     margin: 0 auto;
 }
 
-/* Header styling */
-.header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 .members-btn {
-    background-color: #fff; /* White button */
-    color: #000; /* Black text for contrast */
+    background-color: #444;
+    color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
     cursor: pointer;
-    font-weight: bold;
 }
 
-/* Members List (Now in rectangle boxes) */
+/* Members list container */
 .members-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    max-height: 75vh;
+    overflow-y: auto;
+    padding-right: 390px;
+    padding-left: 390px;
 }
 
+/* Custom scrollbar */
+.members-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.members-list::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 4px;
+}
+
+.members-list::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+/* Member cards */
 .member-card {
-    background-color: #202020; /* Darker grey for improved contrast */
-    border: 2px solid #555; /* Subtle border for structure */
-    border-radius: 10px;
-    padding: 10px 15px;
     display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-/* Rank Number */
-.member-rank {
+    flex-direction: column; /* Display user info vertically */
+    align-items: flex-start; /* Align text to the left */
     background-color: #333;
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 50%;
-    font-weight: bold;
-    min-width: 30px;
-    text-align: center;
+    border: 1px solid #444;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    transition: transform 0.2s;
+    position: relative;
 }
 
-/* Member Info */
-.member-info {
+/* Member count positioning */
+.member-count {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-bottom: 10px;
+    font-weight: bold;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Member rank */
+.member-rank {
+    min-width: 30px;
+    height: 30px;
+    background-color: #444;
+    border-radius: 50%;
     display: flex;
-    flex-direction: column;
-    gap: 3px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+/* Member information */
+.member-info {
+    flex-grow: 1;
 }
 
 .member-info h3 {
-    margin: 0;
-    font-size: 1.1em;
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    color: #fff;
+    display: flex; /* Added to allow inline alignment */
+    align-items: center; /* Vertically align username and profile picture */
 }
 
 .member-info p {
-    margin: 0;
-    font-size: 0.9em;
-    color: #b0b0b0;
+    margin: 5px 0;
+    color: #ccc;
+}
+
+/* Email styling */
+.member-info p:nth-child(2) {
+    margin-top: 0;
+    font-size: .8em;
+    color: #999;
+}
+
+/* Joined Date Styling */
+.member-info .joined {
+    font-size: .8em;
+    color: #bbb;
+    margin-top: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.member-info .joined::before {
+    content: '\1F4C5';
+    margin-right: 6px;
+    font-size: 1em;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .community-container {
+        padding: 10px;
+    }
+
+    .member-card {
+        padding: 10px;
+    }
+}
+
+/* Profile Picture Styling */
+.profile-pic-container {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 10px; /* Space between username and picture */
+}
+
+.profile-pic-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

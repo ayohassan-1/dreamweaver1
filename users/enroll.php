@@ -15,24 +15,34 @@ $course_id = $_GET['course_id'];
 
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get the user input
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $reason = $_POST['reason'];
+    // Get the user input and sanitize it
+    $name = htmlspecialchars(trim($_POST['name']));
+    $email = htmlspecialchars(trim($_POST['email']));
+    $reason = htmlspecialchars(trim($_POST['reason']));
+
+    // Simple validation
+    if (empty($name) || empty($email) || empty($reason)) {
+        die("Please fill all fields");
+    }
 
     // Insert enrollment data into the database
-    $stmt = $pdo->prepare("INSERT INTO enrollments (course_id, user_id, name, email, reason, enrollment_date) 
-                           VALUES (:course_id, :user_id, :name, :email, :reason, NOW())");
-    $stmt->bindParam(':course_id', $course_id);
-    $stmt->bindParam(':user_id', $_SESSION['user_id']);
-    $stmt->bindParam(':name', $name);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':reason', $reason);
-    $stmt->execute();
-
-    // Redirect to course1.php with course ID
-    header("Location: /users/course1.php?course_id=" . $course_id);
-    exit();
+    try {
+        $stmt = $pdo->prepare("INSERT INTO enrollments (course_id, user_id, name, email, reason, enrollment_date) 
+                               VALUES (:course_id, :user_id, :name, :email, :reason, NOW())");
+        $stmt->bindParam(':course_id', $course_id);
+        $stmt->bindParam(':user_id', $_SESSION['user_id']);
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':reason', $reason);
+        $stmt->execute();
+        
+        // Redirect to course page after successful enrollment
+        header("Location: /users/course1.php?course_id=" . $course_id);
+        exit();
+    } catch (PDOException $e) {
+        error_log("Error enrolling in course: " . $e->getMessage());
+        die("An error occurred while processing your enrollment. Please try again later.");
+    }
 }
 ?>
 

@@ -12,14 +12,13 @@ require_once 'db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = htmlspecialchars($_POST['title']); 
     $description = htmlspecialchars($_POST['description']);
-    $youtubeLink = htmlspecialchars($_POST['youtubeLink']);
+    $youtube_link = htmlspecialchars($_POST['youtube_link']);
     $imageUrl = filter_var($_POST['imageUrl'], FILTER_VALIDATE_URL);
-    $classroomImageUrl = filter_var($_POST['classroomImageUrl'], FILTER_VALIDATE_URL);
-    $classroomDescription = htmlspecialchars($_POST['classroomDescription']);
+    $about = htmlspecialchars($_POST['about']);
 
-    if ($imageUrl && $classroomImageUrl) {
+    if ($imageUrl) {
         try {
-            $courseAdded = addCourse($pdo, $title, $description, $youtubeLink, $imageUrl, $classroomImageUrl, $classroomDescription);
+            $courseAdded = addCourse($pdo, $title, $description, $youtube_link, $imageUrl, $about);
 
             if ($courseAdded) {
                 header("Location: users/course1.php?course_id=" . $courseAdded);
@@ -32,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Error adding course. Please try again.";
         }
     } else {
-        echo "Invalid image URLs.";
+        echo "Invalid image URL.";
     }
 }
 ?>
@@ -46,7 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="/createcorusestyle/style.css">
 </head>
 <body>
-    <!-- Stars Container -->
     <div class="stars-container"></div>
 
     <div class="container">
@@ -58,23 +56,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="description">Course Description:</label>
             <textarea id="description" name="description" rows="4" required></textarea>
 
-            <label for="youtubeLink">YouTube Link:</label>
-            <input type="url" id="youtubeLink" name="youtubeLink" placeholder="https://www.youtube.com/watch?v=..." required>
+            <label for="youtube_link">YouTube Link:</label>
+            <input type="url" id="youtube_link" name="youtube_link" placeholder="https://www.youtube.com/watch?v=..." required>
 
             <label for="imageUrl">Course Image URL:</label>
             <input type="url" id="imageUrl" name="imageUrl" required>
 
-            <label for="classroomImageUrl">Classroom Image URL:</label>
-            <input type="url" id="classroomImageUrl" name="classroomImageUrl" required>
-
-            <label for="classroomDescription">Classroom Description:</label>
-            <textarea id="classroomDescription" name="classroomDescription" rows="4" required></textarea>
+            <label for="about">About Course:</label>
+            <textarea id="about" name="about" rows="4" required></textarea>
 
             <button type="submit" class="submit-button">Create Course</button>
         </form>
     </div>
 
-    <!-- External JavaScript -->
     <script src="/createcorusestyle/script.js"></script>
 </body>
 </html>

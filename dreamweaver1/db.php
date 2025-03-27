@@ -20,12 +20,15 @@ function getAllUserEmails($pdo) {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-// Function to add a new user with plain-text password
+// Function to add a new user with hashed password
 function addUser($pdo, $username, $password, $email, $role) {
+    // Hash the password before storing it
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
     $stmt = $pdo->prepare("INSERT INTO users (uName, pWord, email, role, regDate) 
                            VALUES (:uName, :pWord, :email, :role, NOW())");
     $stmt->bindParam(':uName', $username);
-    $stmt->bindParam(':pWord', $password); // Store the plain-text password
+    $stmt->bindParam(':pWord', $hashedPassword); // Store the hashed password
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':role', $role);
     return $stmt->execute();

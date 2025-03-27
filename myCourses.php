@@ -36,25 +36,24 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Courses</title>
     <link rel="stylesheet" href="/users/style.css">
-   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("searchInput").addEventListener("input", searchCourses);
-    });
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("searchInput").addEventListener("input", searchCourses);
+        });
 
-    function searchCourses() {
-        let query = document.getElementById("searchInput").value.trim();
-        let xhr = new XMLHttpRequest();
-        
-        xhr.open("GET", "fetch_courses.php?search=" + encodeURIComponent(query), true);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                document.getElementById("coursesContainer").innerHTML = xhr.responseText;
-            }
-        };
-        xhr.send();
-    }
-</script>
+        function searchCourses() {
+            let query = document.getElementById("searchInput").value.trim();
+            let xhr = new XMLHttpRequest();
 
+            xhr.open("GET", "fetch_courses.php?search=" + encodeURIComponent(query), true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById("coursesContainer").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+    </script>
 </head>
 <body>
     <div class="container">

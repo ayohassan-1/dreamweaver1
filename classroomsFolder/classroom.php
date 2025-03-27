@@ -29,8 +29,8 @@ try {
         die("Course not found.");
     }
 
-    // Extract YouTube link
-    $youtube_link = $course['youtube_link'];
+    // Ensure youtube_link exists in the fetched data
+    $youtube_link = isset($course['youtube_link']) ? $course['youtube_link'] : null;
 
     // Convert YouTube link to embeddable format if necessary
     function getYouTubeEmbedUrl($url) {
@@ -38,7 +38,7 @@ try {
         return isset($matches[1]) ? "https://www.youtube.com/embed/" . $matches[1] : null;
     }
 
-    $embed_url = getYouTubeEmbedUrl($youtube_link);
+    $embed_url = $youtube_link ? getYouTubeEmbedUrl($youtube_link) : null;
 
 } catch (PDOException $e) {
     error_log("Database error: " . $e->getMessage());
@@ -52,8 +52,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($course['title']); ?> - Classroom</title>
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">

@@ -1,5 +1,5 @@
 <?php
-require_once '../classrooms/db.php';
+require_once '../db.php';
 
 if (!isset($_GET['classroom_id'])) {
     echo "Invalid classroom ID.";
