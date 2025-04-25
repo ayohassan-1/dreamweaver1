@@ -1,0 +1,56 @@
+ body { font-family: sans-serif; background-color: #121212; color: white; margin: 0; padding: 0; }
+        .container { display: flex; justify-content: space-around; padding: 30px; }
+        .enroll-container, .media-container { background-color: #1e1e1e; padding: 20px; border-radius: 15px; width: 45%; margin: 10px; border: 2px solid #555; }
+        h1 { color: grey; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input, textarea { width: 100%; padding: 10px; border: none; border-radius: 5px; background-color: #252525; color: white; }
+        textarea { resize: vertical; height: 100px; }
+        button { background-color: grey; color: black; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        .self-elevate { color: white; text-decoration: none; font-size: 2.5em; font-weight: bold; }
+        .video-container, .image-container { width: 100%; max-width: 100%; margin: 0 10px; border-radius: 10px; overflow: hidden; position: relative; }
+        .video-container iframe { width: 100%; height: 315px; }
+        .image-container img { width: 100%; display: block; }
+        .course-title { color: white; font-size: 1.5em; margin-bottom: 10px; position: absolute; top: 10px; left: 10px; }
+        .media-switch { display: flex; justify-content: left; margin-top: 10px; }
+        .media-switch img { width: 50px; height: 40px; border-radius: 5px; cursor: pointer; margin: 0 5px; }
+        .course-description { color: white; margin-top: 20px; text-align: left; font-size: 1.2em; }
+        .header { background-color: #1e1e1e; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #555; position: relative;}
+        .logout-button-left { background-color: #333; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; }
+        .profile-section { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); }
+        .profile-button { background: none; border: none; cursor: pointer; display: flex; align-items: center; }
+        .profile-pic { width: 40px; height: 40px; border-radius: 50%; margin-right: 10px; background-color: #1e1e1e; }
+        .dropdown-content { display: none; position: absolute; background-color: #333; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; right: 0; border-radius: 5px; }
+        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; }
+        .dropdown-content a:hover { background-color: #555; }
+        .show { display: block; }
+        .enroll-container form { display: none; flex-direction: column; justify-content: space-around; height: 100%; }
+        .enroll-container form label, .enroll-container form input, .enroll-container form textarea, .enroll-container form button { margin-bottom: 20px; }
+        #enroll-popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #1e1e1e; border-radius: 15px; border: 2px solid #555; z-index: 1000; width: 500px; text-align: center; font-family: sans-serif; display: flex; flex-direction: column; }
+        #enroll-popup > div:first-child { background-color: #2a2a2a; padding: 20px; border-top-left-radius: 15px; border-top-right-radius: 15px; }
+        #enroll-popup > div:last-child { background-color: #3a3a3a; padding: 20px; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; }
+        #enroll-popup img { width: 140px; height: 140px; border-radius: 5px; margin-bottom: 10px; }
+        #enroll-popup form { display: flex; flex-direction: column; }
+        #enroll-popup form input, #enroll-popup form textarea { background-color: #252525; color: white; padding: 10px; margin-bottom: 15px; border: none; border-radius: 5px; font-size: 16px; }
+        #enroll-popup button { background-color: grey; color: white; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; width: 100%; }
+        .header-course-info { display: flex; align-items: center; }
+        .header-course-info img { width: 60px; height: 60px; margin-right: 10px; border-radius: 5px; }
+        .header-course-info span { color: white; font-size: 1em; margin-right: 20px; }
+        .header-course-arrows { display: flex; flex-direction: column; margin-left: 10px; }
+        .header-course-arrows i { color: lightgrey; font-size: 1em; }
+        .enroll-container { border: 1px solid #555; width: 30%; margin-top: 20px; margin-left: auto; }
+        .enroll-container-content { padding: 20px; }
+        .enroll-container-members { display: flex; align-items: center; justify-content: center; margin-top: 10px; color: white; }
+        .enroll-container-members img { width: 20px; height: 20px; margin-right: 5px; }
+        .media-switch { display: flex; justify-content: left; margin-top: 10px; }
+        .media-switch img { width: 50px; height: 40px; border-radius: 5px; cursor: pointer; margin: 0 5px; }
+        .media-container { position: relative; }
+        .media-switch { position: absolute; bottom: -50px; left: 0; transform: translateX(0); }
+        .powered-by { text-align: center; color: lightgrey; margin-top: 10px; }
+        .logo-container { display: flex; justify-content: center; align-items: center; margin-top: 10px; }
+        .logo-container img { width: 20px; height: 20px; margin: 0 5px; }
+        .enroll-now-section { display: flex; justify-content: space-between; align-items: flex-start; margin-top: 20px; }
+        .enroll-now-section .media-container { width: 60%; }
+        .enroll-now-section .enroll-container { width: 35%; margin-left: 20px; }
+        .price-tag-logo { width: 20px; height: 20px; margin-right: 5px; }
+        .members-logo { width: 20px; height: 20px; margin-right: 5px; }

@@ -26,7 +26,6 @@ try {
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Handle username update
     if (!empty($_POST['username'])) {
         try {
             $new_username = $_POST['username'];
@@ -42,19 +41,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    // Handle profile picture update
     if (isset($_FILES['profile_pic']) && $_FILES['profile_pic']['error'] == 0) {
         $upload_dir = '../uploads/profile_pics/';
         $file_name = basename($_FILES['profile_pic']['name']);
         $file_path = $upload_dir . $file_name;
-
-        // Check if the file is an image
         $image_file_type = strtolower(pathinfo($file_path, PATHINFO_EXTENSION));
         $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
         
         if (in_array($image_file_type, $allowed_types)) {
             if (move_uploaded_file($_FILES['profile_pic']['tmp_name'], $file_path)) {
-                // Update the profile_pic in the database
                 try {
                     $updatePicQuery = "UPDATE users SET profile_pic = :profile_pic WHERE uid = :user_id";
                     $stmt = $pdo->prepare($updatePicQuery);
@@ -73,8 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['error_message'] = "Only image files are allowed (jpg, jpeg, png, gif).";
         }
     }
-
-    // Redirect to the profile page after saving changes
+    
     header("Location: /profile.php");
     exit();
 }
@@ -87,33 +81,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Edit Profile</title>
     <link rel="stylesheet" href="/users/profileeditStyle/style.css">
 </head>
-<body>
-    <div class="profile-edit-container">
-        <h1>Edit Your Profile</h1>
-        
+	
+	    <header class="header" id="header">
+        <button class="logout-button-left" id="logout-button" onclick="location.href='/logout.php'">Log Out</button>
+        <h1 class="header-title" id="header-title">Profile Edit</h1>
+    </header>
+	
+<body class="profile-edit-body">
+
+    <div class="profile-edit-container" id="profile-edit-container">
         <?php if(isset($_SESSION['error_message'])): ?>
-            <div class="error-message"><?php echo $_SESSION['error_message']; unset($_SESSION['error_message']); ?></div>
+            <div class="error-message" id="error-message">
+                <?php echo $_SESSION['error_message']; unset($_SESSION['error_message']); ?>
+            </div>
         <?php endif; ?>
-        
+
         <?php if(isset($_SESSION['success_message'])): ?>
-            <div class="success-message"><?php echo $_SESSION['success_message']; unset($_SESSION['success_message']); ?></div>
+            <div class="success-message" id="success-message">
+                <?php echo $_SESSION['success_message']; unset($_SESSION['success_message']); ?>
+            </div>
         <?php endif; ?>
-        
-        <form action="profileEdit.php" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
+
+        <form action="profileEdit.php" method="POST" enctype="multipart/form-data" class="profile-edit-form" id="profile-edit-form">
+            <div class="form-group" id="username-group">
                 <label for="username">Change Username:</label>
                 <input type="text" name="username" id="username" value="<?php echo htmlspecialchars($current_username); ?>">
             </div>
-            
-            <div class="form-group">
+
+            <div class="form-group" id="profile-pic-group">
                 <label for="profile_pic">Change Profile Picture:</label>
                 <input type="file" name="profile_pic" id="profile_pic" accept="image/*">
             </div>
-            
-            <button type="submit" class="save-button">Save Changes</button>
+
+            <div class="button-container" id="button-container">
+                <button type="submit" class="save-button" id="save-button">Save Changes</button>
+                <button type="button" class="cancel-button" id="cancel-button" onclick="location.href='/profile.php'">Cancel</button>
+            </div>
         </form>
-        
-        <a href="/users/landing.php" class="back-home-button">Back to Home</a>
     </div>
+
 </body>
 </html>

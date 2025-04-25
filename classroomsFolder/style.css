@@ -52,12 +52,27 @@ body {
 
 /* Video Wrapper */
 .video-wrapper {
-    position: relative;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     width: 100%;
     max-width: 600px;
+    margin-bottom: 30px; /* Add space between video blocks */
+}
+
+/* Video Title */
+.video-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+/* Video Description */
+.video-description {
+    font-size: 1em;
+    color: #bbbbbb;
+    margin-top: 10px;
+    text-align: center;
 }
 
 /* Video Section */

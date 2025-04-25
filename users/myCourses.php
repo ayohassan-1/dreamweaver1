@@ -36,14 +36,15 @@ try {
     <link rel="stylesheet" href="/users/buttonStyles.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #333;
-            padding: 10px 20px;
-            color: #fff;
-        }
+		.header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 20px 40px;
+			background-color: #1e1e1e;
+			position: relative;
+			gap: 20px; /* Ensures spacing between elements */
+		}
         .logo {
             font-size: 2.5em;
             font-weight: bold;

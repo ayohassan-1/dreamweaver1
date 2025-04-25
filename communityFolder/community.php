@@ -14,7 +14,7 @@ $course_id = intval($_GET['course_id']); // Ensure it's an integer
 // Get total number of enrolled members
 try {
     $total_members = countEnrolledUsers($pdo, $course_id);
-    $members = getEnrolledUsers($pdo, $course_id);
+    $members = getEnrolledUsers($pdo, $course_id); // Call function from db.php
 } catch (Exception $e) {
     die("Error retrieving members: " . $e->getMessage());
 }
@@ -53,11 +53,9 @@ try {
                     <div class="member-info">
                         <h3>
                             <?php echo htmlspecialchars($member['name']); ?>
-                            <?php if (!empty($member['profile_pic'])): ?>
-                                <div class="profile-pic-container">
-                                    <img src="<?php echo htmlspecialchars($member['profile_pic']); ?>" alt="Profile Picture">
-                                </div>
-                            <?php endif; ?>
+                            <div class="profile-pic-container">
+                                <img src="<?php echo !empty($member['profile_pic']) ? htmlspecialchars($member['profile_pic']) : '/default-profile.png'; ?>" alt="Profile Picture">
+                            </div>
                         </h3>
                         <p>Email: <?php echo htmlspecialchars($member['email']); ?></p>
                         <p>Reason: <?php echo htmlspecialchars($member['reason'] ?? 'N/A'); ?></p>
